@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import {
-  Globe, ShieldCheck, Landmark, Truck, Search, FileX, Smartphone,
+  Globe, ShieldCheck, Landmark, Truck, Search, FileX, Smartphone, Download,
   QrCode, CheckCircle2, ChevronUp, MapPin
 } from "lucide-react";
 import {
@@ -17,9 +17,10 @@ const scenarios = [
 ];
 
 const steps = [
-  { n: 1, title: "Формируется цифровой профиль перевозки", desc: "Данные подтягиваются автоматически из государственных источников" },
-  { n: 2, title: "Водитель получает один QR-код", desc: "QR — ключ к проверке, а не сканы документов" },
-  { n: 3, title: "Проверяющий сканирует QR и получает подтверждение", desc: "Документ существует · Действителен · Соответствует ТС · Статус актуален" },
+  { n: 1, title: "Водитель скачивает мобильное приложение", desc: "Доступно в Google Play (App Store — скоро)", icon: Download },
+  { n: 2, title: "Данные подтягиваются автоматически", desc: "Цифровой профиль перевозки формируется из государственных источников — заполнять ничего не нужно", icon: Smartphone },
+  { n: 3, title: "Водитель получает один QR-код", desc: "QR — ключ к проверке, а не сканы документов", icon: QrCode },
+  { n: 4, title: "Проверяющий сканирует QR и получает подтверждение", desc: "Документ существует · Действителен · Соответствует ТС · Статус актуален", icon: Search },
 ];
 
 const contents = [
@@ -143,14 +144,34 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         <h3 className="text-lg font-bold text-foreground mb-4">Как работает</h3>
         <div className="space-y-4">
           {steps.map((s) => (
-            <div key={s.n} className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                <span className="text-primary-foreground font-bold text-xs">{s.n}</span>
+            <div key={s.n}>
+              <div className="flex gap-3">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                  <span className="text-primary-foreground font-bold text-xs">{s.n}</span>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground flex items-center gap-1.5">
+                    <s.icon className="w-4 h-4 text-primary" />
+                    {s.title}
+                  </p>
+                  <p className="text-xs text-muted-foreground">{s.desc}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{s.title}</p>
-                <p className="text-xs text-muted-foreground">{s.desc}</p>
-              </div>
+              {s.n === 1 && (
+                <div className="ml-11 mt-2 flex flex-wrap gap-2">
+                  <a
+                    href="https://play.google.com/store"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-foreground text-background text-xs font-medium hover:opacity-90 transition-opacity"
+                  >
+                    Google Play
+                  </a>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-muted text-muted-foreground text-xs font-medium cursor-default">
+                    App Store — скоро
+                  </span>
+                </div>
+              )}
             </div>
           ))}
         </div>
