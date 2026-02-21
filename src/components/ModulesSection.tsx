@@ -14,10 +14,10 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center mb-6">
               <FileCheck className="w-6 h-6 text-success" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">
+            <h3 className="font-bold text-foreground mb-3 text-3xl">
               Цифровой паспорт перевозки (ЦПП)
             </h3>
-            <p className="text-muted-foreground text-sm mb-6">
+            <p className="text-muted-foreground mb-6 font-bold text-lg">
               Единая карточка рейса: все документы и статусы перевозки
             </p>
 
@@ -51,10 +51,10 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">
+            <h3 className="font-bold text-foreground mb-3 text-3xl">
               Трекинг Smart Cargo
             </h3>
-            <p className="text-muted-foreground mb-6 text-3xl">
+            <p className="text-muted-foreground mb-6 font-bold text-xl">
               Цепочка статусов и фактического движения рейса в одном интерфейсе
             </p>
 
