@@ -28,7 +28,7 @@ const ModulesSection = () => {
               <FileCheck className="w-6 h-6 text-success" />
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Цифровой паспорт перевозки</h3>
-            <p className="text-base text-muted-foreground mb-6">
+            <p className="text-base font-semibold text-muted-foreground mb-6">
               Один QR-код вместо папки документов — для проверок по пути.
             </p>
             <div className="space-y-2 mb-6">
@@ -55,7 +55,7 @@ const ModulesSection = () => {
               <MapPin className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Трекинг</h3>
-            <p className="text-base text-muted-foreground mb-6">
+            <p className="text-base font-semibold text-muted-foreground mb-6">
               Трекинг перевозки - это экран, где видно, где сейчас находится машина/груз и что уже пройдено по дороге (очередь, пост, контроль) — всё автоматически подтягивается из систем.
             </p>
             <div className="mb-6">
