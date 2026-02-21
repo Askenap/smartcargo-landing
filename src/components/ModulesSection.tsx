@@ -1,19 +1,6 @@
-import { useState } from "react";
-import {
-  CheckCircle2, MapPin, FileCheck, Truck, Train, Ship, Plane, ChevronDown,
-} from "lucide-react";
-import CppModuleDetails from "@/components/modules/CppModuleDetails";
-import TrackingModuleDetails from "@/components/modules/TrackingModuleDetails";
-
-type OpenModule = "cpp" | "tracking" | null;
+import { CheckCircle2, MapPin, FileCheck } from "lucide-react";
 
 const ModulesSection = () => {
-  const [openModule, setOpenModule] = useState<OpenModule>(null);
-
-  const toggle = (mod: OpenModule) => {
-    setOpenModule((prev) => (prev === mod ? null : mod));
-  };
-
   return (
     <section id="modules" className="py-20 section-padding">
       <div className="section-container">
@@ -27,26 +14,36 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center mb-6">
               <FileCheck className="w-6 h-6 text-success" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-2">Цифровой паспорт перевозки</h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              Один QR-код вместо папки документов — для проверок по пути.
+            <h3 className="text-xl font-bold text-foreground mb-3">
+              Цифровой паспорт перевозки (ЦПП)
+            </h3>
+            <p className="text-muted-foreground text-sm mb-6">
+              Единая карточка рейса: все документы и статусы перевозки
             </p>
-            <div className="space-y-2 mb-6">
-              {["Один QR-код на телефоне вместо «папки бумажек» и объяснений", "Подходит для разных проверок: граница, ЕАЭС (СНТ), перевозки по РК", "Документы подтягиваются из гос. систем — вручную не нужно ничего заполнять"].map((t) => (
-                <div key={t} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                  <span className="text-sm text-foreground">{t}</span>
-                </div>
-              ))}
+
+            <div className="space-y-3 mb-8">
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
+                <span className="text-sm text-foreground">Замена папок бумажных документов и ручного поиска статусов</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0 text-3xl" />
+                <span className="text-foreground font-bold text-lg">Предъявление на таможне по единому QR-коду</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
+                <span className="text-sm text-foreground">Данные подтягиваются автоматически из госсистем</span>
+              </div>
             </div>
-            <button
-              onClick={() => toggle("cpp")}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors"
-            >
-              Подробнее
-              <ChevronDown className={`w-4 h-4 transition-transform ${openModule === "cpp" ? "rotate-180" : ""}`} />
-            </button>
-            {openModule === "cpp" && <CppModuleDetails onCollapse={() => setOpenModule(null)} />}
+
+            <div className="flex gap-3">
+              <button className="px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors">
+                Подробнее
+              </button>
+              <button className="text-sm font-medium text-primary hover:underline">
+                О ЦПП
+              </button>
+            </div>
           </div>
 
           {/* Tracking Card */}
@@ -54,39 +51,37 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-2">Трекинг</h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              Трекинг перевозки - это экран, где видно, где сейчас находится машина/груз и что уже пройдено по дороге (очередь, пост, контроль) — всё автоматически подтягивается из систем.
+            <h3 className="text-xl font-bold text-foreground mb-3">
+              Трекинг Smart Cargo
+            </h3>
+            <p className="text-muted-foreground mb-6 text-3xl">
+              Цепочка статусов и фактического движения рейса в одном интерфейсе
             </p>
-            <div className="mb-6">
-              <p className="text-xs text-muted-foreground mb-2">Виды транспорта:</p>
+
+            <div className="mb-8">
+              <p className="text-sm text-muted-foreground mb-3">Источники данных:</p>
               <div className="flex flex-wrap gap-2">
-                {[
-                  { icon: Truck, label: "Авто" },
-                  { icon: Train, label: "ЖД" },
-                  { icon: Ship, label: "Море" },
-                  { icon: Plane, label: "Авиа" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs font-medium">
-                    <item.icon className="w-3.5 h-3.5" />
-                    {item.label}
-                  </div>
-                ))}
+                {["Кеден + СИК", "KazToll", "i-service (ЖД)", "Cargo Ruqsat"].map((tag) =>
+                <span key={tag} className="px-3 py-1 rounded-md bg-secondary text-secondary-foreground text-xs font-medium">
+                    {tag}
+                  </span>
+                )}
               </div>
             </div>
-            <button
-              onClick={() => toggle("tracking")}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors"
-            >
-              Подробнее
-              <ChevronDown className={`w-4 h-4 transition-transform ${openModule === "tracking" ? "rotate-180" : ""}`} />
-            </button>
-            {openModule === "tracking" && <TrackingModuleDetails onCollapse={() => setOpenModule(null)} />}
+
+            <div className="flex gap-3">
+              <button className="px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors">
+                Подробнее
+              </button>
+              <button className="text-sm font-medium text-primary hover:underline">
+                О трекинге
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ModulesSection;
