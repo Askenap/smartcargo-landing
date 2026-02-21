@@ -24,15 +24,15 @@ const ModulesSection = () => {
             <div className="space-y-3 mb-8">
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">Замена папок бумажных документов и ручного поиска статусов</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0 text-3xl" />
-                <span className="text-foreground font-bold text-lg">Предъявление на таможне по единому QR-коду</span>
+                <span className="text-sm text-foreground">Один QR вместо «папки бумажек» и объяснений</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">Данные подтягиваются автоматически из госсистем</span>
+                <span className="text-sm text-foreground">Подходит для разных проверок: граница, ЕАЭС (СНТ), перевозки по РК</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
+                <span className="text-sm text-foreground">Документы подтягиваются из гос. систем — вручную не нужно ничего заполнять</span>
               </div>
             </div>
 
