@@ -14,7 +14,9 @@ const Header = () => {
           <a href="#contacts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Контакты</a>
         </nav>
         <a
-          href="#contacts"
+          href="https://app.smartcargo.kz"
+          target="_blank"
+          rel="noopener noreferrer"
           className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
         >
           Вход

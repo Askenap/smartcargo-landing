@@ -8,10 +8,10 @@ const ContactsSection = () => {
     <section id="contacts" className="py-20 section-padding">
       <div className="section-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-2">
-          Хотите подключиться к пилоту?
+          Остались вопросы?
         </h2>
         <p className="text-lg text-muted-foreground text-center mb-12">
-          Оставьте заявку — покажем демо за 15 минут
+          Оставьте контакты и мы с вами свяжемся
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
