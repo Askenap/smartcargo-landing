@@ -2,34 +2,35 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const steps = [
-  { id: 1, title: "Создание рейса", description: "Перевозчик создаёт рейс и привязывает водителя" },
-  { id: 2, title: "Загрузка документов", description: "Документы подтягиваются автоматически из госсистем" },
-  { id: 3, title: "Проверка документов", description: "Диспетчер проверяет корректность" },
-  { id: 4, title: "QR код активен", description: "Формируется единый QR-код для предъявления" },
-  { id: 5, title: "Все документы готовы", description: "Рейс готов к отправке" },
+  { id: 1, title: "QR-код на границе", description: "Водитель показывает QR-код инспектору на посту" },
+  { id: 2, title: "Мгновенная проверка", description: "Система автоматически проверяет все документы" },
+  { id: 3, title: "Груз едет дальше", description: "Перевозка продолжается без бумажной волокиты" },
 ];
 
 const HeroSection = () => {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(0);
 
   return (
     <section className="pt-32 pb-16 section-padding">
       <div className="section-container text-center">
-        <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight max-w-4xl mx-auto mb-8">
-          Smart Cargo — цифровая платформа управления грузоперевозками по всем видам транспорта.
+        <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight max-w-4xl mx-auto mb-4">
+          Управляйте перевозкой в одном цифровом окне
         </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          Smart Cargo — цифровая платформа управления грузоперевозками по всем видам транспорта.
+        </p>
 
         <div className="flex items-center justify-center gap-4 mb-12">
-          <a href="#modules" className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity">
-            О ЦПП
+          <a href="#how-it-works" className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity">
+            Как это работает
           </a>
           <a href="#tracking" className="px-6 py-3 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
-            О Трекинге
+            Отследить груз
           </a>
         </div>
 
         <p className="text-sm text-muted-foreground mb-6">
-          Интерактивный маршрут — нажмите на точку
+          Как проходит перевозка с Smart Cargo
         </p>
 
         {/* Interactive Route Map */}
@@ -37,7 +38,7 @@ const HeroSection = () => {
           {/* Route tooltip */}
           <div className="mb-8">
             <span className="inline-block px-4 py-2 rounded-full bg-warning text-warning-foreground text-sm font-medium">
-              Кликните на точки маршрута для навигации
+              Нажмите на точку, чтобы увидеть, что происходит на каждом этапе
             </span>
           </div>
 

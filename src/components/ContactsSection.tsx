@@ -7,9 +7,12 @@ const ContactsSection = () => {
   return (
     <section id="contacts" className="py-20 section-padding">
       <div className="section-container">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-          Контакты
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-2">
+          Хотите подключиться к пилоту?
         </h2>
+        <p className="text-lg text-muted-foreground text-center mb-12">
+          Оставьте заявку — покажем демо за 15 минут
+        </p>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left: Contact info */}
@@ -99,7 +102,7 @@ const ContactsSection = () => {
               />
             </div>
             <button className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity">
-              Отправить
+              Оставить заявку
             </button>
           </div>
         </div>

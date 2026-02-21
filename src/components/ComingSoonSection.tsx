@@ -3,18 +3,18 @@ import { Ship, Zap, Globe } from "lucide-react";
 const features = [
   {
     icon: Ship,
-    title: "Бронирование морской перевозки",
-    description: "Бронирование места на судне и портовых услуг для портов Актау и Курык.",
+    title: "Бронь на паром онлайн",
+    description: "Забронируйте место на судне из Актау или Курык через Smart Cargo.",
   },
   {
     icon: Zap,
-    title: "Верифицированный проход госграницы",
-    description: "Ускоренное прохождение границы через подтверждение готовности перевозки.",
+    title: "Быстрый проезд границы РК–КНР",
+    description: "Подтвердите, что груз готов — получите слот на проезд без очереди в 25 дней.",
   },
   {
     icon: Globe,
-    title: "Новые виды трекинга",
-    description: "Трекинг по навигационным пломбам, СВХ и всем дорогам Казахстана.",
+    title: "GPS-трекинг в реальном времени",
+    description: "Навигационные пломбы, GPS-трекеры и камеры по всей стране — видьте груз на карте в любой момент.",
   },
 ];
 
@@ -23,7 +23,7 @@ const ComingSoonSection = () => {
     <section className="py-20 section-padding bg-secondary/30">
       <div className="section-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-          Скоро будет
+          Другие модули платформы
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
