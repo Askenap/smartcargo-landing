@@ -27,8 +27,8 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center mb-6">
               <FileCheck className="w-6 h-6 text-success" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-2">Цифровой паспорт перевозки</h3>
-            <p className="text-sm text-muted-foreground mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Цифровой паспорт перевозки</h3>
+            <p className="text-base text-muted-foreground mb-6">
               Один QR-код вместо папки документов — для проверок по пути.
             </p>
             <div className="space-y-2 mb-6">
@@ -54,8 +54,8 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-2">Трекинг</h3>
-            <p className="text-sm text-muted-foreground mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Трекинг</h3>
+            <p className="text-base text-muted-foreground mb-6">
               Трекинг перевозки - это экран, где видно, где сейчас находится машина/груз и что уже пройдено по дороге (очередь, пост, контроль) — всё автоматически подтягивается из систем.
             </p>
             <div className="mb-6">
