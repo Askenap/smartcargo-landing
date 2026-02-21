@@ -119,9 +119,9 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
         <h3 className="text-lg font-bold text-foreground mb-4">Для кого</h3>
         <div className="grid grid-cols-3 gap-3">
           {[
-            { icon: Truck, label: "Логист / перевозчик", text: "Контроль рейса и ETA", color: "bg-primary/10", iconColor: "text-primary" },
+            { icon: Truck, label: "Логист / перевозчик", text: "Контроль рейса и сроки доставки груза", color: "bg-primary/10", iconColor: "text-primary" },
             { icon: Search, label: "Клиент", text: "Прозрачный статус доставки", color: "bg-warning/10", iconColor: "text-warning" },
-            { icon: Landmark, label: "Госорганы", text: "Быстрее понимать картину по событиям", color: "bg-success/10", iconColor: "text-success" },
+            { icon: Landmark, label: "Государственные органы", text: "Быстрее понимать картину по событиям", color: "bg-success/10", iconColor: "text-success" },
           ].map((r) => (
             <div key={r.label} className="border border-border rounded-xl p-4 text-center">
               <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
