@@ -1,4 +1,4 @@
-import { Layout, FileText, Eye } from "lucide-react";
+
 
 const HeroSection = () => {
   return (
@@ -11,12 +11,12 @@ const HeroSection = () => {
           Цифровая платформа управления грузоперевозками по всем видам транспорта.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#contacts"
             className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
           >
-            Запросить демо
+            Вход
           </a>
           <a
             href="#modules"
@@ -24,21 +24,6 @@ const HeroSection = () => {
           >
             Смотреть модули
           </a>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {[
-            { icon: Layout, text: "Единый интерфейс по рейсу" },
-            { icon: FileText, text: "Документы и статусы — в одном месте" },
-            { icon: Eye, text: "Прозрачность для всех участников" },
-          ].map((b) => (
-            <div key={b.text} className="flex flex-col items-center gap-3 p-4">
-              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
-                <b.icon className="w-6 h-6 text-accent-foreground" />
-              </div>
-              <p className="text-sm font-medium text-foreground">{b.text}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

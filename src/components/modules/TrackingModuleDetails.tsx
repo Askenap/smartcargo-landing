@@ -7,19 +7,12 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const chips = ["Обзор", "Как работает", "Источники", "Таймлайн", "Было / Стало", "Для кого", "FAQ"];
-
-const tiles = [
-  { icon: MapPin, title: "Карта", text: "Последняя точка и маршрут" },
-  { icon: Clock, title: "Таймлайн событий", text: "Хронология всех событий рейса" },
-  { icon: FileCheck, title: "Статусы документов", text: "Документы и контроли" },
-  { icon: Bell, title: "Уведомления", text: "Ссылка для участников" },
-];
+const chips = ["Было / Стало", "Источники", "Для кого", "Как работает", "FAQ"];
 
 const steps = [
   { n: 1, title: "Создайте перевозку и укажите идентификаторы", desc: "Номер авто / номер вагона / номер декларации / бронь очереди и т.д." },
   { n: 2, title: "Smart Cargo автоматически подтягивает события", desc: "Данные из интеграций обновляются в реальном времени" },
-  { n: 3, title: "Вы видите всё в одном интерфейсе", desc: "Карта + таймлайн + статусы + уведомления" },
+  { n: 3, title: "Вы видите всё в одном интерфейсе", desc: "Карта + хронология + статусы + уведомления" },
 ];
 
 const sources = [
@@ -28,15 +21,6 @@ const sources = [
   { icon: ShieldCheck, name: "ИС «Кеден»", what: "Таможенные статусы", coverage: "23 поста на границе с 3-ми странами + внутренние посты (100%)" },
   { icon: Ticket, name: "Cargo Ruqsat / Alem", what: "Статусы электронной очереди", coverage: "Бронь → подтверждение → выезд/пересечение" },
   { icon: Anchor, name: "Морпорты (Актау / Курык)", what: "Морской логистический статус", coverage: "Solvo Морпорт Актау / 1С Курык" },
-];
-
-const timeline = [
-  { label: "Создана перевозка", type: "system", color: "bg-primary" },
-  { label: "Очередь: бронь подтверждена", type: "queue", color: "bg-warning" },
-  { label: "KazToll: фиксация на трассе", type: "kaztoll", color: "bg-accent-foreground" },
-  { label: "КПП: прибытие", type: "border", color: "bg-success" },
-  { label: "Кеден: статус обновлён", type: "customs", color: "bg-warning" },
-  { label: "Пересечение / выпуск", type: "exit", color: "bg-success" },
 ];
 
 const faqs = [
@@ -82,73 +66,6 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
         </button>
       </div>
 
-      {/* Обзор */}
-      <div ref={(el) => { refs.current["Обзор"] = el; }}>
-        <h2 className="text-2xl font-bold text-foreground mb-2">Трекинг перевозки</h2>
-        <p className="text-sm text-muted-foreground mb-6">
-          Карта + таймлайн: где груз и что с ним происходит — в одном месте.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {tiles.map((t) => (
-            <div key={t.title} className="border border-border rounded-xl p-4 text-center">
-              <t.icon className="w-5 h-5 text-primary mx-auto mb-2" />
-              <p className="text-sm font-semibold text-foreground">{t.title}</p>
-              <p className="text-xs text-muted-foreground">{t.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Как работает */}
-      <div ref={(el) => { refs.current["Как работает"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Как работает</h3>
-        <div className="space-y-4">
-          {steps.map((s) => (
-            <div key={s.n} className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                <span className="text-primary-foreground font-bold text-xs">{s.n}</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{s.title}</p>
-                <p className="text-xs text-muted-foreground">{s.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Источники */}
-      <div ref={(el) => { refs.current["Источники"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Источники данных (AS IS)</h3>
-        <div className="space-y-3">
-          {sources.map((s) => (
-            <div key={s.name} className="border border-border rounded-xl p-4 flex gap-3">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
-                <s.icon className="w-5 h-5 text-accent-foreground" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-foreground">{s.name}</p>
-                <p className="text-xs text-muted-foreground">{s.what}</p>
-                <p className="text-xs text-muted-foreground/70 mt-1">{s.coverage}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Таймлайн */}
-      <div ref={(el) => { refs.current["Таймлайн"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Пример таймлайна</h3>
-        <div className="space-y-3 border-l-2 border-border pl-5 relative">
-          {timeline.map((e, i) => (
-            <div key={i} className="relative">
-              <div className={`absolute -left-[27px] w-4 h-4 rounded-full ${e.color}`} />
-              <p className="text-sm font-medium text-foreground">{e.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Было / Стало */}
       <div ref={(el) => { refs.current["Было / Стало"] = el; }}>
         <h3 className="text-lg font-bold text-foreground mb-4">Было / Стало</h3>
@@ -167,7 +84,7 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
           <div className="border border-success/30 rounded-xl p-4 bg-success/5">
             <span className="px-2 py-0.5 rounded-full bg-success/10 text-success text-xs font-bold">Стало</span>
             <ul className="mt-3 space-y-1.5">
-              {["Единый таймлайн", "Карта в реальном времени", "Одна ссылка для участников"].map((t) => (
+              {["Единая хронология событий", "Карта в реальном времени", "Одна ссылка для участников"].map((t) => (
                 <li key={t} className="flex items-start gap-2">
                   <Map className="w-3.5 h-3.5 text-success/60 mt-0.5 shrink-0" />
                   <span className="text-xs text-foreground">{t}</span>
@@ -175,6 +92,25 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
               ))}
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* Источники */}
+      <div ref={(el) => { refs.current["Источники"] = el; }}>
+        <h3 className="text-lg font-bold text-foreground mb-4">Источники данных</h3>
+        <div className="space-y-3">
+          {sources.map((s) => (
+            <div key={s.name} className="border border-border rounded-xl p-4 flex gap-3">
+              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
+                <s.icon className="w-5 h-5 text-accent-foreground" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-foreground">{s.what}</p>
+                <p className="text-xs text-muted-foreground">{s.name}</p>
+                <p className="text-xs text-muted-foreground/70 mt-1">{s.coverage}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -193,6 +129,24 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
               </div>
               <p className="text-sm font-bold text-foreground mb-1">{r.label}</p>
               <p className="text-xs text-muted-foreground">{r.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Как работает */}
+      <div ref={(el) => { refs.current["Как работает"] = el; }}>
+        <h3 className="text-lg font-bold text-foreground mb-4">Как работает</h3>
+        <div className="space-y-4">
+          {steps.map((s) => (
+            <div key={s.n} className="flex gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                <span className="text-primary-foreground font-bold text-xs">{s.n}</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{s.title}</p>
+                <p className="text-xs text-muted-foreground">{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -217,7 +171,7 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
           href="#contacts"
           className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
         >
-          Запросить демо
+          Вход
         </a>
       </div>
     </div>
