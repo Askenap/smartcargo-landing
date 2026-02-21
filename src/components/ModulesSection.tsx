@@ -35,7 +35,7 @@ const ModulesSection = () => {
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">Данные подтягиваются автоматически из госсистем</span>
+                <span className="text-sm text-foreground">Данные подтягиваются автоматически из государственных систем</span>
               </div>
             </div>
 
@@ -57,8 +57,8 @@ const ModulesSection = () => {
             <h3 className="font-bold text-foreground mb-3 text-3xl">
               Трекинг Smart Cargo
             </h3>
-            <p className="text-muted-foreground mb-6 font-bold text-3xl">
-              Цепочка статусов и фактического движения рейса в одном интерфейсе
+            <p className="text-muted-foreground mb-6 font-bold text-lg">
+              Трекинг перевозки — это экран, на котором видно, где сейчас находится машина/груз и что уже пройдено по дороге (таможенный контроль, камера видеонаблюдения, электронная очередь) — всё автоматически подтягивается из систем.
             </p>
 
             <div className="mb-8">
