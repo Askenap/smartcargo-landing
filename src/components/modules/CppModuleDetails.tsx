@@ -13,7 +13,7 @@ const scenarios = [
   { icon: Globe, title: "Граница / таможенный и пограничный пост", text: "QR заменяет бумажный «бегунок», подтверждает прохождение процедур." },
   { icon: MapPin, title: "Международная перевозка по территории РК", text: "Инспекция видит цифровой статус легальности груза без бумажных проверок." },
   { icon: Landmark, title: "Перевозка внутри ЕАЭС (налоговый контроль)", text: "КГД проверяет СНТ: документ существует и корректен — без ручного поиска." },
-  { icon: Truck, title: "Внутренняя перевозка по Казахстану", text: "Быстрый доступ к электронным документам (ТТН/путевой лист) и данным рейса." },
+  { icon: Truck, title: "Внутренняя перевозка по Казахстану", text: "Быстрый доступ к электронным документам (товарно-транспортная накладная/путевой лист) и данным рейса." },
 ];
 
 const steps = [
@@ -27,8 +27,8 @@ const contents = [
   "Предварительное информирование",
   "Статусы смежных контролей",
   "СНТ и ЭСФ (ЕАЭС)",
-  "Электронные документы внутренних перевозок (ТТН/путевой лист)",
-  "Данные о перевозчике и ТС",
+  "Электронные документы внутренних перевозок (товарно-транспортная накладная/путевой лист)",
+  "Данные о перевозчике и транспортном средстве",
 ];
 
 const faqs = [
@@ -82,7 +82,7 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
           <div className="border border-destructive/30 rounded-xl p-4 bg-destructive/5">
             <span className="px-2 py-0.5 rounded-full bg-destructive/10 text-destructive text-xs font-bold">Было</span>
             <ul className="mt-3 space-y-1.5">
-              {["Папка документов", "Ручной поиск", "Бумажный «бегунок»", "Споры на проверках"].map((t) => (
+              {["Папка документов", "Бумажный «бегунок»", "Доказание достоверности документов"].map((t) => (
                 <li key={t} className="flex items-start gap-2">
                   <FileX className="w-3.5 h-3.5 text-destructive/60 mt-0.5 shrink-0" />
                   <span className="text-xs text-foreground">{t}</span>
@@ -93,7 +93,7 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
           <div className="border border-success/30 rounded-xl p-4 bg-success/5">
             <span className="px-2 py-0.5 rounded-full bg-success/10 text-success text-xs font-bold">Стало</span>
             <ul className="mt-3 space-y-1.5">
-              {["Один QR-код", "Проверка за секунды", "Подтверждение по источнику", "Меньше спорных ситуаций"].map((t) => (
+              {["Один QR-код", "Проверка за секунды", "Документ из государственных баз уже проверен"].map((t) => (
                 <li key={t} className="flex items-start gap-2">
                   <Smartphone className="w-3.5 h-3.5 text-success/60 mt-0.5 shrink-0" />
                   <span className="text-xs text-foreground">{t}</span>
@@ -124,7 +124,7 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         <div className="grid grid-cols-3 gap-3">
           {[
             { icon: Truck, label: "Водитель / перевозчик", text: "Проще проверка, меньше бумаги", color: "bg-primary/10", iconColor: "text-primary" },
-            { icon: Landmark, label: "Госорганы", text: "Прозрачность и подтверждение по источнику", color: "bg-warning/10", iconColor: "text-warning" },
+            { icon: Landmark, label: "Государственные органы", text: "Прозрачность и подтверждение по источнику", color: "bg-warning/10", iconColor: "text-warning" },
             { icon: Search, label: "Инспекция / КГД", text: "Быстрый контроль и фиксация", color: "bg-success/10", iconColor: "text-success" },
           ].map((r) => (
             <div key={r.label} className="border border-border rounded-xl p-4 text-center">
