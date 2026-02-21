@@ -56,7 +56,7 @@ const ModulesSection = () => {
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">Трекинг</h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Карта + таймлайн: где груз и что с ним происходит.
+              Трекинг перевозки — это экран, где видно, где сейчас находится машина/груз и что уже пройдено по дороге (очередь, пост, контроль) — всё автоматически подтягивается из систем.
             </p>
             <div className="mb-6">
               <p className="text-xs text-muted-foreground mb-2">Виды транспорта:</p>

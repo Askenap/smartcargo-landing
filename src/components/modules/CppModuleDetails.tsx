@@ -7,7 +7,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const chips = ["Сценарии", "Как работает", "Что внутри", "Было / Стало", "Для кого", "FAQ"];
+const chips = ["Было / Стало", "Сценарии", "Для кого", "Как работает", "Что внутри", "FAQ"];
 
 const scenarios = [
   { icon: Globe, title: "Граница / таможенный и пограничный пост", text: "QR заменяет бумажный «бегунок», подтверждает прохождение процедур." },
@@ -75,18 +75,32 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         </button>
       </div>
 
-      {/* Hero */}
-      <div>
-        <h2 className="text-2xl font-bold text-foreground mb-2">Цифровой паспорт перевозки (ЦПП)</h2>
-        <p className="text-sm text-muted-foreground mb-4">
-          Один QR-код вместо папки документов — подходит для разных сценариев контроля.
-        </p>
-        <div className="rounded-xl border border-primary/20 bg-accent p-4">
-          <p className="text-sm font-semibold text-foreground mb-1">Водителю нужно только:</p>
-          <p className="text-sm text-foreground">Получить QR-код и показывать его при проверке.</p>
-          <p className="text-xs text-muted-foreground mt-1">
-            Система подтверждает документы и статусы по государственным источникам.
-          </p>
+      {/* Было / Стало */}
+      <div ref={(el) => { refs.current["Было / Стало"] = el; }}>
+        <h3 className="text-lg font-bold text-foreground mb-4">Было / Стало</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="border border-destructive/30 rounded-xl p-4 bg-destructive/5">
+            <span className="px-2 py-0.5 rounded-full bg-destructive/10 text-destructive text-xs font-bold">Было</span>
+            <ul className="mt-3 space-y-1.5">
+              {["Папка документов", "Ручной поиск", "Бумажный «бегунок»", "Споры на проверках"].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <FileX className="w-3.5 h-3.5 text-destructive/60 mt-0.5 shrink-0" />
+                  <span className="text-xs text-foreground">{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="border border-success/30 rounded-xl p-4 bg-success/5">
+            <span className="px-2 py-0.5 rounded-full bg-success/10 text-success text-xs font-bold">Стало</span>
+            <ul className="mt-3 space-y-1.5">
+              {["Один QR-код", "Проверка за секунды", "Подтверждение по источнику", "Меньше спорных ситуаций"].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <Smartphone className="w-3.5 h-3.5 text-success/60 mt-0.5 shrink-0" />
+                  <span className="text-xs text-foreground">{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -99,6 +113,26 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
               <s.icon className="w-5 h-5 text-primary mb-2" />
               <p className="text-sm font-semibold text-foreground mb-1">{s.title}</p>
               <p className="text-xs text-muted-foreground">{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Для кого */}
+      <div ref={(el) => { refs.current["Для кого"] = el; }}>
+        <h3 className="text-lg font-bold text-foreground mb-4">Для кого</h3>
+        <div className="grid grid-cols-3 gap-3">
+          {[
+            { icon: Truck, label: "Водитель / перевозчик", text: "Проще проверка, меньше бумаги", color: "bg-primary/10", iconColor: "text-primary" },
+            { icon: Landmark, label: "Госорганы", text: "Прозрачность и подтверждение по источнику", color: "bg-warning/10", iconColor: "text-warning" },
+            { icon: Search, label: "Инспекция / КГД", text: "Быстрый контроль и фиксация", color: "bg-success/10", iconColor: "text-success" },
+          ].map((r) => (
+            <div key={r.label} className="border border-border rounded-xl p-4 text-center">
+              <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
+                <r.icon className={`w-5 h-5 ${r.iconColor}`} />
+              </div>
+              <p className="text-sm font-bold text-foreground mb-1">{r.label}</p>
+              <p className="text-xs text-muted-foreground">{r.text}</p>
             </div>
           ))}
         </div>
@@ -135,55 +169,6 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         </div>
       </div>
 
-      {/* Было / Стало */}
-      <div ref={(el) => { refs.current["Было / Стало"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Было / Стало</h3>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="border border-destructive/30 rounded-xl p-4 bg-destructive/5">
-            <span className="px-2 py-0.5 rounded-full bg-destructive/10 text-destructive text-xs font-bold">Было</span>
-            <ul className="mt-3 space-y-1.5">
-              {["Папка документов", "Ручной поиск", "Бумажный «бегунок»", "Споры на проверках"].map((t) => (
-                <li key={t} className="flex items-start gap-2">
-                  <FileX className="w-3.5 h-3.5 text-destructive/60 mt-0.5 shrink-0" />
-                  <span className="text-xs text-foreground">{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="border border-success/30 rounded-xl p-4 bg-success/5">
-            <span className="px-2 py-0.5 rounded-full bg-success/10 text-success text-xs font-bold">Стало</span>
-            <ul className="mt-3 space-y-1.5">
-              {["Один QR-код", "Проверка за секунды", "Подтверждение по источнику", "Меньше спорных ситуаций"].map((t) => (
-                <li key={t} className="flex items-start gap-2">
-                  <Smartphone className="w-3.5 h-3.5 text-success/60 mt-0.5 shrink-0" />
-                  <span className="text-xs text-foreground">{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Для кого */}
-      <div ref={(el) => { refs.current["Для кого"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Для кого</h3>
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { icon: Truck, label: "Водитель / перевозчик", text: "Проще проверка, меньше бумаги", color: "bg-primary/10", iconColor: "text-primary" },
-            { icon: Landmark, label: "Госорганы", text: "Прозрачность и подтверждение по источнику", color: "bg-warning/10", iconColor: "text-warning" },
-            { icon: Search, label: "Инспекция / КГД", text: "Быстрый контроль и фиксация", color: "bg-success/10", iconColor: "text-success" },
-          ].map((r) => (
-            <div key={r.label} className="border border-border rounded-xl p-4 text-center">
-              <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
-                <r.icon className={`w-5 h-5 ${r.iconColor}`} />
-              </div>
-              <p className="text-sm font-bold text-foreground mb-1">{r.label}</p>
-              <p className="text-xs text-muted-foreground">{r.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* FAQ */}
       <div ref={(el) => { refs.current["FAQ"] = el; }}>
         <h3 className="text-lg font-bold text-foreground mb-4">FAQ</h3>
@@ -203,7 +188,7 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
           href="#contacts"
           className="inline-block px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
         >
-          Запросить демо
+          Вход
         </a>
       </div>
     </div>
