@@ -8,7 +8,7 @@ const HeroSection = () => {
           Smart Cargo
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-          Цифровая платформа управления грузоперевозками по всем видам транспорта.
+          Цифровая платформа управления грузоперевозками по всем видам транспорта
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
