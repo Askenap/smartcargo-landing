@@ -1,5 +1,3 @@
-import { Bell } from "lucide-react";
-
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -12,19 +10,15 @@ const Header = () => {
         </div>
         <nav className="hidden md:flex items-center gap-8">
           <a href="#modules" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Модули</a>
-          <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Как это работает</a>
-          <a href="#tracking" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Трекинг</a>
+          <a href="#coming-soon" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Скоро</a>
           <a href="#contacts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Контакты</a>
         </nav>
-        <div className="flex items-center gap-3">
-          <button className="relative p-2 rounded-lg hover:bg-secondary transition-colors">
-            <Bell className="w-5 h-5 text-muted-foreground" />
-          </button>
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-medium">S</span>
-          </div>
-          <span className="text-sm text-muted-foreground hidden md:inline">🇷🇺 Рус</span>
-        </div>
+        <a
+          href="#contacts"
+          className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          Запросить демо
+        </a>
       </div>
     </header>
   );
