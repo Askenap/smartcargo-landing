@@ -1,8 +1,12 @@
 import { Handshake, Headphones } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactsSection = () => {
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+  const { toast } = useToast();
 
   return (
     <section id="contacts" className="py-20 section-padding">
@@ -101,8 +105,32 @@ const ContactsSection = () => {
                 className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
               />
             </div>
-            <button className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity">
-              Оставить заявку
+            <button
+              onClick={async () => {
+                if (!form.name || !form.email) {
+                  toast({ title: "Заполните имя и email", variant: "destructive" });
+                  return;
+                }
+                setSubmitting(true);
+                const { error } = await supabase.from("contact_requests").insert({
+                  name: form.name,
+                  company: form.company || null,
+                  email: form.email,
+                  phone: form.phone || null,
+                  message: form.message || null,
+                } as any);
+                setSubmitting(false);
+                if (error) {
+                  toast({ title: "Ошибка отправки", description: error.message, variant: "destructive" });
+                } else {
+                  toast({ title: "Заявка отправлена!" });
+                  setForm({ name: "", company: "", email: "", phone: "", message: "" });
+                }
+              }}
+              disabled={submitting}
+              className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+            >
+              {submitting ? "Отправка..." : "Оставить заявку"}
             </button>
           </div>
         </div>
