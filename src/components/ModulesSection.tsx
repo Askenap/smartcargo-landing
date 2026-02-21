@@ -1,4 +1,4 @@
-import { CheckCircle2, MapPin, FileCheck } from "lucide-react";
+import { CheckCircle2, MapPin, FileCheck, Truck, Train, Ship, Plane } from "lucide-react";
 
 const ModulesSection = () => {
   return (
@@ -15,24 +15,24 @@ const ModulesSection = () => {
               <FileCheck className="w-6 h-6 text-success" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-3">
-              Цифровой паспорт перевозки (ЦПП)
+              Цифровой паспорт перевозки
             </h3>
             <p className="text-muted-foreground text-sm mb-6">
-              Единая карточка рейса: все документы и статусы перевозки
+              Один QR-код вместо папки бумаг. Все документы и статусы рейса — в телефоне водителя.
             </p>
 
             <div className="space-y-3 mb-8">
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">Замена папок бумажных документов и ручного поиска статусов</span>
+                <span className="text-sm text-foreground">Больше никаких бумаг — всё в телефоне</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">Предъявление на таможне по единому QR-коду</span>
+                <span className="text-sm text-foreground">Один QR на таможне вместо папки с печатями</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">Данные подтягиваются автоматически из госсистем</span>
+                <span className="text-sm text-foreground">Декларации, СНТ, ТТН — сами появляются в профиле рейса</span>
               </div>
             </div>
 
@@ -41,7 +41,7 @@ const ModulesSection = () => {
                 Подробнее
               </button>
               <button className="text-sm font-medium text-primary hover:underline">
-                О ЦПП
+                Как это работает
               </button>
             </div>
           </div>
@@ -55,16 +55,22 @@ const ModulesSection = () => {
               Трекинг Smart Cargo
             </h3>
             <p className="text-muted-foreground text-sm mb-6">
-              Цепочка статусов и фактического движения рейса в одном интерфейсе
+              Видьте, где ваш груз прямо сейчас: камеры на трассах, ЖД станции, порты — всё на одной карте
             </p>
 
             <div className="mb-8">
-              <p className="text-sm text-muted-foreground mb-3">Источники данных:</p>
-              <div className="flex flex-wrap gap-2">
-                {["Кеден + СИК", "KazToll", "i-service (ЖД)", "Cargo Ruqsat"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 rounded-md bg-secondary text-secondary-foreground text-xs font-medium">
-                    {tag}
-                  </span>
+              <p className="text-sm text-muted-foreground mb-3">Виды транспорта:</p>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { icon: Truck, label: "Авто" },
+                  { icon: Train, label: "ЖД" },
+                  { icon: Ship, label: "Море" },
+                  { icon: Plane, label: "Авиа" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs font-medium">
+                    <item.icon className="w-3.5 h-3.5" />
+                    {item.label}
+                  </div>
                 ))}
               </div>
             </div>
