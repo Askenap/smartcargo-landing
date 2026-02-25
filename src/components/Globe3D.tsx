@@ -160,7 +160,7 @@ function GlobeObject() {
   useFrame(() => {
     if (globeRef.current) {
       globeRef.current.rotation.y = -2.7;
-      globeRef.current.rotation.x = 0.4;
+      globeRef.current.rotation.x = 0.55;
     }
   });
 
