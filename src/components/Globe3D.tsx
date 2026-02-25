@@ -167,7 +167,7 @@ function GlobeObject() {
   return (
     <group ref={globeRef}>
       <Sphere args={[GLOBE_RADIUS, 64, 64]}>
-        <meshStandardMaterial map={earthTexture} metalness={0.05} roughness={0.7} />
+        <meshStandardMaterial map={earthTexture} metalness={0} roughness={0.6} emissive="#222222" emissiveMap={earthTexture} emissiveIntensity={0.3} />
       </Sphere>
       <Sphere args={[GLOBE_RADIUS + 0.005, 64, 64]}>
         <meshStandardMaterial color="#3B82F6" transparent opacity={0.08} />
@@ -194,11 +194,12 @@ export default function Globe3D() {
     <div className="w-full h-full">
       <div className="w-full h-full">
         <Canvas camera={{ position: [0, 0, 10], fov: 26 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
-          <ambientLight intensity={1.0} />
-          <directionalLight position={[5, 3, 5]} intensity={1.5} />
-          <directionalLight position={[-5, -3, -5]} intensity={0.6} />
-          <pointLight position={[0, 0, 5]} intensity={0.8} />
-          <pointLight position={[0, 5, 0]} intensity={0.4} />
+          <ambientLight intensity={1.5} />
+          <directionalLight position={[5, 3, 5]} intensity={2.0} />
+          <directionalLight position={[-5, -3, -5]} intensity={1.0} />
+          <pointLight position={[0, 0, 5]} intensity={1.0} />
+          <pointLight position={[0, 5, 0]} intensity={0.6} />
+          <pointLight position={[-3, 0, 3]} intensity={0.5} />
           <Suspense fallback={null}>
             <GlobeObject />
           </Suspense>
