@@ -140,7 +140,7 @@ function GlobeObject() {
   const earthTexture = useTexture("/textures/earth-hd.jpg");
 
   // Fixed rotation centered on Kazakhstan (lng ~68°)
-  const kazRotationY = -1.2;
+  const kazRotationY = -1.8;
 
   useFrame(() => {
     if (globeRef.current) {
