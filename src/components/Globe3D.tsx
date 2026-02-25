@@ -137,16 +137,14 @@ function LocationMarker({ locKey }: { locKey: keyof typeof locations }) {
 
 function GlobeObject() {
   const globeRef = useRef<THREE.Group>(null);
-  const initialRotationSet = useRef(false);
   const earthTexture = useTexture("/textures/earth-hd.jpg");
 
-  useFrame((_, delta) => {
+  // Fixed rotation centered on Kazakhstan (lng ~68°)
+  const kazRotationY = -(68 * Math.PI / 180) - Math.PI;
+
+  useFrame(() => {
     if (globeRef.current) {
-      if (!initialRotationSet.current) {
-        globeRef.current.rotation.y = 5.6;
-        initialRotationSet.current = true;
-      }
-      globeRef.current.rotation.y += delta * 0.04;
+      globeRef.current.rotation.y = kazRotationY;
     }
   });
 
@@ -186,7 +184,7 @@ export default function Globe3D() {
           <Suspense fallback={null}>
             <GlobeObject />
           </Suspense>
-          <OrbitControls enableZoom={false} enablePan={false} rotateSpeed={0.3} autoRotate autoRotateSpeed={0.3} />
+          <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </div>
     </div>
