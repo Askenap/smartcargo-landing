@@ -146,9 +146,8 @@ function KazakhstanBorder() {
 
   return (
     <>
-      <Line points={points} color="#3B82F6" lineWidth={3} transparent opacity={1} />
-      <Line points={points} color="#60A5FA" lineWidth={6} transparent opacity={0.5} />
-      <Line points={points} color="#93C5FD" lineWidth={10} transparent opacity={0.2} />
+      <Line points={points} color="#60A5FA" lineWidth={1.5} transparent opacity={1} />
+      <Line points={points} color="#93C5FD" lineWidth={3} transparent opacity={0.4} />
     </>
   );
 }
