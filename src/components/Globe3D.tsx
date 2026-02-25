@@ -139,12 +139,10 @@ function GlobeObject() {
   const globeRef = useRef<THREE.Group>(null);
   const earthTexture = useTexture("/textures/earth-hd.jpg");
 
-  // Fixed rotation centered on Kazakhstan (lng ~68°)
-  const kazRotationY = -3;
-
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y = kazRotationY;
+      globeRef.current.rotation.y = -3;
+      globeRef.current.rotation.x = 0.4;
     }
   });
 
