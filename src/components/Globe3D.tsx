@@ -167,7 +167,7 @@ function GlobeObject() {
   return (
     <group ref={globeRef}>
       <Sphere args={[GLOBE_RADIUS, 64, 64]}>
-        <meshStandardMaterial map={earthTexture} metalness={0.1} roughness={0.8} />
+        <meshStandardMaterial map={earthTexture} metalness={0.05} roughness={0.7} />
       </Sphere>
       <Sphere args={[GLOBE_RADIUS + 0.005, 64, 64]}>
         <meshStandardMaterial color="#3B82F6" transparent opacity={0.08} />
@@ -194,10 +194,11 @@ export default function Globe3D() {
     <div className="w-full h-full">
       <div className="w-full h-full">
         <Canvas camera={{ position: [0, 0, 7], fov: 35 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[5, 3, 5]} intensity={1} />
-          <directionalLight position={[-5, -3, -5]} intensity={0.3} />
-          <pointLight position={[0, 0, 5]} intensity={0.5} />
+          <ambientLight intensity={1.0} />
+          <directionalLight position={[5, 3, 5]} intensity={1.5} />
+          <directionalLight position={[-5, -3, -5]} intensity={0.6} />
+          <pointLight position={[0, 0, 5]} intensity={0.8} />
+          <pointLight position={[0, 5, 0]} intensity={0.4} />
           <Suspense fallback={null}>
             <GlobeObject />
           </Suspense>
