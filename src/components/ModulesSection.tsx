@@ -16,7 +16,7 @@ const ModulesSection = () => {
           Модули платформы
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
           {/* ЦПП Card */}
           <div className="border border-border rounded-2xl p-8 hover:shadow-lg transition-shadow">
             <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center mb-6">
