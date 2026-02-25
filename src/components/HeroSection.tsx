@@ -4,7 +4,7 @@ const Globe3D = lazy(() => import("@/components/Globe3D"));
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-16 section-padding overflow-hidden">
+    <section className="pt-32 pb-4 section-padding overflow-hidden">
       <div className="section-container flex flex-col md:flex-row items-center gap-8">
         {/* Left: text */}
         <div className="flex-1 text-center md:text-left">
