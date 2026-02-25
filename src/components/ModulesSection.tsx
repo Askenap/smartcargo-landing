@@ -27,7 +27,10 @@ const ModulesSection = () => {
             <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center mb-6">
               <FileCheck className="w-6 h-6 text-success" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Цифровой паспорт перевозки</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Цифровой паспорт перевозки</h3>
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: 'hsl(48 96% 89%)', color: 'hsl(32 80% 30%)' }}>
+              🚀 Пилотный запуск — 15 марта 2026
+            </span>
             <p className="text-base font-semibold text-muted-foreground mb-6">
               Один QR-код вместо папки документов — для проверок по пути следования грузоперевозки.
             </p>
