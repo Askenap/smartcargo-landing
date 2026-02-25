@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="absolute inset-x-4 top-20 bottom-4 flex items-center justify-center pointer-events-none">
         <div className="w-full h-full rounded-3xl bg-gradient-to-br from-accent to-secondary opacity-60" />
       </div>
-      <div className="section-container flex flex-col md:flex-row items-center gap-8 relative z-10 pl-8 md:pl-12">
+      <div className="section-container flex flex-col md:flex-row items-center gap-8 relative z-10 pl-8 md:pl-12 pr-4 md:pr-8">
         {/* Left: text */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
