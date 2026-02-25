@@ -141,7 +141,7 @@ function GlobeObject() {
 
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y = -3.3;
+      globeRef.current.rotation.y = -2.7;
       globeRef.current.rotation.x = 0.4;
     }
   });
