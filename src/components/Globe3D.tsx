@@ -30,9 +30,7 @@ const locations = {
   china: { lat: 35, lng: 105, label: "Китай" },
   turkey: { lat: 39, lng: 35, label: "Турция" },
   russia: { lat: 56, lng: 38, label: "Россия" },
-  brazil: { lat: -15, lng: -47, label: "Бразилия" },
   india: { lat: 20, lng: 78, label: "Индия" },
-  southafrica: { lat: -30, lng: 25, label: "ЮАР" },
   uae: { lat: 24, lng: 54, label: "ОАЭ" },
 };
 
@@ -58,7 +56,6 @@ const routes: RouteData[] = [
   { from: "eu", to: "turkey", color: "#FBBF24", speed: 0.27, type: "train" },
   { from: "uae", to: "kz", color: "#22D3EE", speed: 0.31, type: "plane" },
   { from: "russia", to: "china", color: "#F43F5E", speed: 0.25, type: "train" },
-  { from: "brazil", to: "southafrica", color: "#F97316", speed: 0.2, type: "plane" },
 ];
 
 function AnimatedRoute({ from, to, color, speed, type }: RouteData) {
@@ -123,6 +120,35 @@ function LocationMarker({ locKey }: { locKey: keyof typeof locations }) {
   );
 }
 
+function KazakhstanBorder() {
+  const borderCoords: [number, number][] = [
+    [50.4, 46.0], [51.0, 47.5], [51.5, 49.0], [51.8, 51.0], [52.5, 51.5],
+    [53.5, 51.2], [54.5, 51.0], [55.0, 54.5], [55.3, 57.0], [55.0, 59.5],
+    [54.5, 61.0], [54.0, 64.0], [53.5, 67.0], [54.0, 69.5], [54.5, 71.0],
+    [53.5, 73.0], [54.0, 76.5], [52.5, 77.0], [51.5, 79.5], [50.5, 80.0],
+    [49.5, 82.5], [48.0, 83.5], [47.5, 85.0], [46.0, 83.5], [45.0, 82.0],
+    [44.0, 80.0], [43.0, 79.0], [42.5, 77.0], [41.0, 75.5], [40.5, 71.0],
+    [41.0, 68.0], [41.0, 65.0], [41.5, 62.0], [41.0, 59.0], [41.5, 56.0],
+    [42.5, 54.0], [44.0, 52.0], [45.5, 50.5], [47.0, 49.5], [48.5, 48.0],
+    [50.4, 46.0],
+  ];
+
+  const points = useMemo(
+    () => borderCoords.map(([lat, lng]) => {
+      const v = latLngToVector3(lat, lng, GLOBE_RADIUS + 0.015);
+      return [v.x, v.y, v.z] as [number, number, number];
+    }),
+    []
+  );
+
+  return (
+    <>
+      <Line points={points} color="#3B82F6" lineWidth={2} transparent opacity={0.9} />
+      <Line points={points} color="#60A5FA" lineWidth={4} transparent opacity={0.3} />
+    </>
+  );
+}
+
 function GlobeObject() {
   const globeRef = useRef<THREE.Group>(null);
   const earthTexture = useTexture("/textures/earth-hd.jpg");
@@ -151,6 +177,7 @@ function GlobeObject() {
       {(Object.keys(locations) as (keyof typeof locations)[]).map((key) => (
         <LocationMarker key={key} locKey={key} />
       ))}
+      <KazakhstanBorder />
       {routes.map((route, i) => (
         <AnimatedRoute key={i} {...route} />
       ))}
