@@ -32,7 +32,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right: globe */}
-        <div className="flex-1 w-full h-[400px] md:h-[500px] lg:h-[550px]">
+        <div className="flex-1 w-full h-[400px] md:h-[500px] lg:h-[550px] overflow-visible">
           <Suspense fallback={null}>
             <Globe3D />
           </Suspense>
