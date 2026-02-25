@@ -1,9 +1,20 @@
+import { lazy, Suspense } from "react";
 
+const Globe3D = lazy(() => import("@/components/Globe3D"));
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-16 section-padding">
-      <div className="section-container text-center">
+    <section className="relative pt-32 pb-16 section-padding overflow-hidden">
+      {/* Globe background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
+        <div className="w-[600px] h-[600px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px]">
+          <Suspense fallback={null}>
+            <Globe3D />
+          </Suspense>
+        </div>
+      </div>
+
+      <div className="section-container text-center relative z-10">
         <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
           Smart Cargo
         </h1>
