@@ -145,7 +145,6 @@ function GlobeObject() {
   useFrame(() => {
     if (globeRef.current) {
       globeRef.current.rotation.y = kazRotationY;
-      globeRef.current.rotation.x = -2;
     }
   });
 
