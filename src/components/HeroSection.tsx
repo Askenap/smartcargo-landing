@@ -4,7 +4,7 @@ const Globe3D = lazy(() => import("@/components/Globe3D"));
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-4 section-padding relative">
+    <section className="pt-32 pb-4 section-padding relative overflow-visible">
       {/* Background decorative shape */}
       <div className="absolute inset-x-4 top-20 bottom-4 flex items-center justify-center pointer-events-none">
         <div className="w-full h-full rounded-3xl bg-gradient-to-br from-accent to-secondary opacity-60" />

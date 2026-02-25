@@ -193,7 +193,7 @@ export default function Globe3D() {
   return (
     <div className="w-full h-full">
       <div className="w-full h-full">
-        <Canvas camera={{ position: [0, 0, 7], fov: 35 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
+        <Canvas camera={{ position: [0, 0, 8], fov: 32 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
           <ambientLight intensity={1.0} />
           <directionalLight position={[5, 3, 5]} intensity={1.5} />
           <directionalLight position={[-5, -3, -5]} intensity={0.6} />
