@@ -51,10 +51,9 @@ const routes: RouteData[] = [
   { from: "china", to: "kz", color: "#10B981", speed: 0.35, type: "truck" },
   { from: "turkey", to: "kz", color: "#F59E0B", speed: 0.25, type: "plane" },
   { from: "russia", to: "kz", color: "#8B5CF6", speed: 0.28, type: "train" },
-  { from: "india", to: "uae", color: "#14B8A6", speed: 0.3, type: "truck" },
-  { from: "eu", to: "turkey", color: "#FBBF24", speed: 0.27, type: "train" },
   { from: "uae", to: "kz", color: "#22D3EE", speed: 0.31, type: "plane" },
   { from: "russia", to: "china", color: "#F43F5E", speed: 0.25, type: "train" },
+  { from: "kz", to: "india", color: "#14B8A6", speed: 0.28, type: "truck" },
 ];
 
 function AnimatedRoute({ from, to, color, speed, type }: RouteData) {
