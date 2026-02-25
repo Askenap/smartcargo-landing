@@ -146,8 +146,9 @@ function KazakhstanBorder() {
 
   return (
     <>
-      <Line points={points} color="#3B82F6" lineWidth={2} transparent opacity={0.9} />
-      <Line points={points} color="#60A5FA" lineWidth={4} transparent opacity={0.3} />
+      <Line points={points} color="#3B82F6" lineWidth={3} transparent opacity={1} />
+      <Line points={points} color="#60A5FA" lineWidth={6} transparent opacity={0.5} />
+      <Line points={points} color="#93C5FD" lineWidth={10} transparent opacity={0.2} />
     </>
   );
 }
@@ -192,7 +193,7 @@ export default function Globe3D() {
   return (
     <div className="w-full h-full">
       <div className="w-full h-full">
-        <Canvas camera={{ position: [0, 0, 5.5], fov: 45 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
+        <Canvas camera={{ position: [0, 0, 6.5], fov: 40 }} style={{ background: "transparent" }} gl={{ alpha: true }}>
           <ambientLight intensity={0.6} />
           <directionalLight position={[5, 3, 5]} intensity={1} />
           <directionalLight position={[-5, -3, -5]} intensity={0.3} />
