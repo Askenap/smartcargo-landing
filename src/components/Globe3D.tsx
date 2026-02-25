@@ -47,7 +47,7 @@ interface RouteData {
 }
 
 const routes: RouteData[] = [
-  { from: "eu", to: "kz", color: "#3B82F6", speed: 0.3, type: "truck" },
+  { from: "kz", to: "eu", color: "#3B82F6", speed: 0.3, type: "truck" },
   { from: "china", to: "kz", color: "#10B981", speed: 0.35, type: "truck" },
   { from: "turkey", to: "kz", color: "#F59E0B", speed: 0.25, type: "plane" },
   { from: "russia", to: "kz", color: "#8B5CF6", speed: 0.28, type: "train" },
