@@ -30,16 +30,10 @@ const locations = {
   china: { lat: 35, lng: 105, label: "Китай" },
   turkey: { lat: 39, lng: 35, label: "Турция" },
   russia: { lat: 56, lng: 38, label: "Россия" },
-  usa: { lat: 40, lng: -100, label: "США" },
   brazil: { lat: -15, lng: -47, label: "Бразилия" },
   india: { lat: 20, lng: 78, label: "Индия" },
-  japan: { lat: 36, lng: 140, label: "Япония" },
-  australia: { lat: -25, lng: 135, label: "Австралия" },
   southafrica: { lat: -30, lng: 25, label: "ЮАР" },
   uae: { lat: 24, lng: 54, label: "ОАЭ" },
-  korea: { lat: 37, lng: 127, label: "Корея" },
-  canada: { lat: 56, lng: -106, label: "Канада" },
-  mexico: { lat: 23, lng: -102, label: "Мексика" },
 };
 
 const GLOBE_RADIUS = 2;
@@ -59,18 +53,12 @@ const routes: RouteData[] = [
   { from: "kz", to: "china", color: "#10B981", speed: 0.35, type: "train" },
   { from: "turkey", to: "kz", color: "#F59E0B", speed: 0.25, type: "plane" },
   { from: "russia", to: "kz", color: "#8B5CF6", speed: 0.28, type: "train" },
-  { from: "china", to: "japan", color: "#EC4899", speed: 0.32, type: "plane" },
-  { from: "usa", to: "eu", color: "#06B6D4", speed: 0.22, type: "plane" },
-  { from: "brazil", to: "southafrica", color: "#F97316", speed: 0.2, type: "plane" },
   { from: "india", to: "uae", color: "#14B8A6", speed: 0.3, type: "truck" },
   { from: "kz", to: "india", color: "#A855F7", speed: 0.26, type: "plane" },
-  { from: "australia", to: "japan", color: "#EF4444", speed: 0.24, type: "plane" },
-  { from: "korea", to: "china", color: "#84CC16", speed: 0.33, type: "train" },
-  { from: "canada", to: "usa", color: "#0EA5E9", speed: 0.29, type: "truck" },
-  { from: "mexico", to: "brazil", color: "#D946EF", speed: 0.21, type: "truck" },
   { from: "eu", to: "turkey", color: "#FBBF24", speed: 0.27, type: "train" },
   { from: "uae", to: "kz", color: "#22D3EE", speed: 0.31, type: "plane" },
   { from: "russia", to: "china", color: "#F43F5E", speed: 0.25, type: "train" },
+  { from: "brazil", to: "southafrica", color: "#F97316", speed: 0.2, type: "plane" },
 ];
 
 function AnimatedRoute({ from, to, color, speed, type }: RouteData) {
