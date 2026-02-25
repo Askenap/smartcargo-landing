@@ -4,8 +4,12 @@ const Globe3D = lazy(() => import("@/components/Globe3D"));
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-4 section-padding overflow-hidden">
-      <div className="section-container flex flex-col md:flex-row items-center gap-8">
+    <section className="pt-32 pb-4 section-padding overflow-hidden relative">
+      {/* Background decorative shape */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[90%] h-[85%] rounded-3xl bg-gradient-to-br from-accent to-secondary opacity-60" />
+      </div>
+      <div className="section-container flex flex-col md:flex-row items-center gap-8 relative z-10">
         {/* Left: text */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
