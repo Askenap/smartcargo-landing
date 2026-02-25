@@ -5,14 +5,9 @@ import {
 import CppModuleDetails from "@/components/modules/CppModuleDetails";
 import TrackingModuleDetails from "@/components/modules/TrackingModuleDetails";
 
-type OpenModule = "cpp" | "tracking" | null;
-
 const ModulesSection = () => {
-  const [openModule, setOpenModule] = useState<OpenModule>(null);
-
-  const toggle = (mod: OpenModule) => {
-    setOpenModule((prev) => (prev === mod ? null : mod));
-  };
+  const [cppOpen, setCppOpen] = useState(true);
+  const [trackingOpen, setTrackingOpen] = useState(true);
 
   return (
     <section id="modules" className="py-20 section-padding">
@@ -64,13 +59,13 @@ const ModulesSection = () => {
               </div>
             </div>
             <button
-              onClick={() => toggle("cpp")}
+              onClick={() => setCppOpen((v) => !v)}
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors"
             >
-              Подробнее
-              <ChevronDown className={`w-4 h-4 transition-transform ${openModule === "cpp" ? "rotate-180" : ""}`} />
+              {cppOpen ? "Свернуть" : "Подробнее"}
+              <ChevronDown className={`w-4 h-4 transition-transform ${cppOpen ? "rotate-180" : ""}`} />
             </button>
-            {openModule === "cpp" && <CppModuleDetails onCollapse={() => setOpenModule(null)} />}
+            {cppOpen && <CppModuleDetails onCollapse={() => setCppOpen(false)} />}
           </div>
 
           {/* Tracking Card */}
@@ -99,13 +94,13 @@ const ModulesSection = () => {
               </div>
             </div>
             <button
-              onClick={() => toggle("tracking")}
+              onClick={() => setTrackingOpen((v) => !v)}
               className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-secondary transition-colors"
             >
-              Подробнее
-              <ChevronDown className={`w-4 h-4 transition-transform ${openModule === "tracking" ? "rotate-180" : ""}`} />
+              {trackingOpen ? "Свернуть" : "Подробнее"}
+              <ChevronDown className={`w-4 h-4 transition-transform ${trackingOpen ? "rotate-180" : ""}`} />
             </button>
-            {openModule === "tracking" && <TrackingModuleDetails onCollapse={() => setOpenModule(null)} />}
+            {trackingOpen && <TrackingModuleDetails onCollapse={() => setTrackingOpen(false)} />}
           </div>
         </div>
       </div>
