@@ -109,8 +109,10 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         <h3 className="text-lg font-bold text-foreground mb-4">Сценарии применения</h3>
         <div className="grid sm:grid-cols-2 gap-4">
           {scenarios.map((s) => (
-            <div key={s.title} className="border border-border rounded-xl p-4">
-              <s.icon className="w-5 h-5 text-primary mb-2" />
+            <div key={s.title} className="rounded-xl p-4 bg-card" style={{ boxShadow: "var(--card-shadow)" }}>
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                <s.icon className="w-5 h-5 text-primary" />
+              </div>
               <p className="text-sm font-semibold text-foreground mb-1">{s.title}</p>
               <p className="text-xs text-muted-foreground">{s.text}</p>
             </div>
