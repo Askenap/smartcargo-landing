@@ -20,7 +20,7 @@ const businessPoints = [
 
 const StrategicEffectSection = () => {
   return (
-    <section className="py-20 section-padding">
+    <section className="py-24 md:py-28 section-padding">
       <div className="section-container">
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-accent text-accent-foreground mb-4">
@@ -36,10 +36,15 @@ const StrategicEffectSection = () => {
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {/* Государство */}
-          <div className="border border-border rounded-2xl p-6">
+          <div
+            className="rounded-2xl p-6 bg-card transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-xl bg-success/10 flex items-center justify-center">
-                <Landmark className="w-5 h-5 text-success" />
+              <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
+                <Landmark className="w-6 h-6 text-success" />
               </div>
               <h3 className="text-xl font-bold text-foreground">Для государства</h3>
             </div>
@@ -54,10 +59,15 @@ const StrategicEffectSection = () => {
           </div>
 
           {/* Бизнес */}
-          <div className="border border-border rounded-2xl p-6">
+          <div
+            className="rounded-2xl p-6 bg-card transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Truck className="w-5 h-5 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Truck className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground">Для бизнеса</h3>
             </div>

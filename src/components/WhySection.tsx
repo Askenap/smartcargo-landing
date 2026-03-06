@@ -47,7 +47,7 @@ const cards = [
 
 const WhySection = () => {
   return (
-    <section className="py-20 section-padding">
+    <section className="py-24 md:py-28 section-padding">
       <div className="section-container">
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-accent text-accent-foreground mb-4">
@@ -65,10 +65,13 @@ const WhySection = () => {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow"
+              className="rounded-2xl p-6 bg-card transition-shadow"
+              style={{ boxShadow: "var(--card-shadow)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
-              <div className={`w-11 h-11 rounded-xl ${card.bg} flex items-center justify-center mb-4`}>
-                <card.icon className={`w-5 h-5 ${card.color}`} />
+              <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-4`}>
+                <card.icon className={`w-6 h-6 ${card.color}`} />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{card.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{card.text}</p>

@@ -100,7 +100,7 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
         <h3 className="text-lg font-bold text-foreground mb-4">Источники данных</h3>
         <div className="space-y-3">
           {sources.map((s) => (
-            <div key={s.name} className="border border-border rounded-xl p-4 flex gap-3">
+            <div key={s.name} className="rounded-xl p-4 flex gap-3" style={{ boxShadow: "var(--card-shadow)" }}>
               <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
                 <s.icon className="w-5 h-5 text-accent-foreground" />
               </div>
@@ -123,7 +123,7 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
             { icon: Search, label: "Клиент", text: "Прозрачный статус доставки", color: "bg-warning/10", iconColor: "text-warning" },
             { icon: Landmark, label: "Государственные органы", text: "Быстрее понимать картину по событиям", color: "bg-success/10", iconColor: "text-success" },
           ].map((r) => (
-            <div key={r.label} className="border border-border rounded-xl p-4 text-center">
+            <div key={r.label} className="rounded-xl p-4 text-center" style={{ boxShadow: "var(--card-shadow)" }}>
               <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
                 <r.icon className={`w-5 h-5 ${r.iconColor}`} />
               </div>
@@ -134,18 +134,18 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
         </div>
       </div>
 
-      {/* Как работает */}
-      <div ref={(el) => { refs.current["Как работает"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Как работает</h3>
+      {/* Как работает — dark gradient */}
+      <div ref={(el) => { refs.current["Как работает"] = el; }} className="rounded-2xl p-6 md:p-8" style={{ background: "linear-gradient(135deg, hsl(var(--dark-section-start)), hsl(var(--dark-section-mid)) 50%, hsl(var(--dark-section-end)))" }}>
+        <h3 className="text-lg font-bold text-white mb-4">Как работает</h3>
         <div className="space-y-4">
           {steps.map((s) => (
             <div key={s.n} className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                <span className="text-primary-foreground font-bold text-xs">{s.n}</span>
+              <div className="w-8 h-8 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center shrink-0">
+                <span className="text-white font-bold text-xs">{s.n}</span>
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">{s.title}</p>
-                <p className="text-xs text-muted-foreground">{s.desc}</p>
+                <p className="text-sm font-semibold text-white">{s.title}</p>
+                <p className="text-xs text-white/70">{s.desc}</p>
               </div>
             </div>
           ))}

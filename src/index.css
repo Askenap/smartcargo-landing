@@ -50,6 +50,15 @@
 
     --route-bg: 224 44% 28%;
 
+    --section-alt: 225 14% 97%;
+
+    --dark-section-start: 228 38% 16%;
+    --dark-section-mid: 230 30% 28%;
+    --dark-section-end: 221 69% 46%;
+
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.10);
+
     font-family: 'Inter', sans-serif;
   }
 }

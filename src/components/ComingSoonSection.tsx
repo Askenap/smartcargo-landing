@@ -41,24 +41,29 @@ const ComingSoonSection = () => {
     borderRefs.current[chip]?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const badgeClass = "px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-bold";
-
   return (
-    <section id="coming-soon" className="py-20 section-padding bg-secondary/30">
+    <section id="coming-soon" className="py-24 md:py-28 section-padding bg-section-alt">
       <div className="section-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
           Скоро будет
         </h2>
 
-        {/* Cards grid — equal size */}
+        {/* Cards grid */}
         <div className="grid md:grid-cols-3 gap-6">
-          {/* Card 1: Новые виды трекинга */}
-          <div className="border border-border rounded-2xl p-6 bg-background hover:shadow-lg transition-shadow flex flex-col">
+          {/* Card 1 */}
+          <div
+            className="rounded-2xl p-6 bg-card flex flex-col transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Globe className="w-6 h-6 text-primary" />
               </div>
-              <span className={badgeClass}>Ближайшее обновление: 5 марта</span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30">
+                Ближайшее обновление: 5 марта
+              </span>
             </div>
             <h3 className="text-base font-bold text-foreground mb-2">Новые виды трекинга</h3>
             <p className="text-sm text-muted-foreground mb-4 flex-1">
@@ -73,13 +78,20 @@ const ComingSoonSection = () => {
             </button>
           </div>
 
-          {/* Card 2: Верифицированный проход */}
-          <div className="border border-border rounded-2xl p-6 bg-background hover:shadow-lg transition-shadow flex flex-col">
+          {/* Card 2 */}
+          <div
+            className="rounded-2xl p-6 bg-card flex flex-col transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Zap className="w-6 h-6 text-primary" />
               </div>
-              <span className={badgeClass}>2 квартал 2026</span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-muted text-muted-foreground border border-border">
+                2 квартал 2026
+              </span>
             </div>
             <h3 className="text-base font-bold text-foreground mb-2">Верифицированный проход государственной границы</h3>
             <p className="text-sm text-muted-foreground mb-4 flex-1">
@@ -94,22 +106,29 @@ const ComingSoonSection = () => {
             </button>
           </div>
 
-          {/* Card 3: Бронирование морской перевозки */}
-          <div className="border border-border rounded-2xl p-6 bg-background hover:shadow-lg transition-shadow flex flex-col">
+          {/* Card 3 */}
+          <div
+            className="rounded-2xl p-6 bg-card flex flex-col transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Ship className="w-6 h-6 text-primary" />
               </div>
-              <span className={badgeClass}>2 квартал 2026</span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-muted text-muted-foreground border border-border">
+                2 квартал 2026
+              </span>
             </div>
             <h3 className="text-base font-bold text-foreground mb-2">Бронирование морской перевозки</h3>
             <p className="text-sm text-muted-foreground flex-1">Бронирование места на судне и портовых услуг для портов Актау и Курык.</p>
           </div>
         </div>
 
-        {/* Expanded content — below the grid, pushes everything down */}
+        {/* Expanded content */}
         {expanded === "tracking" && (
-          <div className="mt-6 border border-border rounded-2xl p-6 bg-background">
+          <div className="mt-6 rounded-2xl p-6 bg-card" style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-foreground">Источники данных</h3>
               <button
@@ -121,7 +140,7 @@ const ComingSoonSection = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {trackingSources.map((s) => (
-                <div key={s.name} className="border border-border rounded-xl p-4 flex gap-3">
+                <div key={s.name} className="rounded-xl p-4 flex gap-3 bg-background" style={{ boxShadow: "var(--card-shadow)" }}>
                   <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
                     <s.icon className="w-5 h-5 text-accent-foreground" />
                   </div>
@@ -129,7 +148,7 @@ const ComingSoonSection = () => {
                     <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-sm font-bold text-foreground">{s.name}</p>
                       {s.launched && (
-                        <span className="px-2 py-0.5 rounded-full bg-success/10 text-success text-xs font-bold">Запущено</span>
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-success/10 text-success border border-success/30 text-xs font-bold">Запущено</span>
                       )}
                     </div>
                     <p className="text-xs text-muted-foreground">{s.provider}</p>
@@ -143,7 +162,7 @@ const ComingSoonSection = () => {
         )}
 
         {expanded === "border" && (
-          <div className="mt-6 border border-border rounded-2xl p-6 bg-background">
+          <div className="mt-6 rounded-2xl p-6 bg-card" style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-foreground">Верифицированный проход государственной границы</h3>
               <button
@@ -154,7 +173,6 @@ const ComingSoonSection = () => {
               </button>
             </div>
 
-            {/* Bullets */}
             <div className="space-y-2 mb-6">
               {[
                 "Приоритетный слот только при подтверждённом грузе на стороне КНР",
@@ -167,7 +185,6 @@ const ComingSoonSection = () => {
               ))}
             </div>
 
-            {/* Chip navigation */}
             <div className="flex flex-wrap gap-2 mb-6">
               {borderChips.map((c) => (
                 <button
@@ -230,7 +247,7 @@ const ComingSoonSection = () => {
                   { icon: Landmark, label: "Государство", text: "Снижение очереди, рост пропускной способности коридора РК–КНР", color: "bg-warning/10", iconColor: "text-warning" },
                   { icon: Globe, label: "КНР", text: "Нормализация паритета, меньше скопления казахстанских фур на территории Китая", color: "bg-success/10", iconColor: "text-success" },
                 ].map((r) => (
-                  <div key={r.label} className="border border-border rounded-xl p-4 text-center">
+                  <div key={r.label} className="rounded-xl p-4 text-center" style={{ boxShadow: "var(--card-shadow)" }}>
                     <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
                       <r.icon className={`w-5 h-5 ${r.iconColor}`} />
                     </div>

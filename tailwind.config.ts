@@ -65,6 +65,9 @@ export default {
         route: {
           DEFAULT: "hsl(var(--route-bg))",
         },
+        "section-alt": {
+          DEFAULT: "hsl(var(--section-alt))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

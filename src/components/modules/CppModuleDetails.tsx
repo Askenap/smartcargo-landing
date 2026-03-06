@@ -109,8 +109,10 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         <h3 className="text-lg font-bold text-foreground mb-4">Сценарии применения</h3>
         <div className="grid sm:grid-cols-2 gap-4">
           {scenarios.map((s) => (
-            <div key={s.title} className="border border-border rounded-xl p-4">
-              <s.icon className="w-5 h-5 text-primary mb-2" />
+            <div key={s.title} className="rounded-xl p-4 bg-card" style={{ boxShadow: "var(--card-shadow)" }}>
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                <s.icon className="w-5 h-5 text-primary" />
+              </div>
               <p className="text-sm font-semibold text-foreground mb-1">{s.title}</p>
               <p className="text-xs text-muted-foreground">{s.text}</p>
             </div>
@@ -127,7 +129,7 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
             { icon: Landmark, label: "Государственные органы", text: "Прозрачность и подтверждение по источнику", color: "bg-warning/10", iconColor: "text-warning" },
             { icon: Search, label: "Инспекция / КГД", text: "Быстрый контроль и фиксация", color: "bg-success/10", iconColor: "text-success" },
           ].map((r) => (
-            <div key={r.label} className="border border-border rounded-xl p-4 text-center">
+            <div key={r.label} className="rounded-xl p-4 text-center" style={{ boxShadow: "var(--card-shadow)" }}>
               <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
                 <r.icon className={`w-5 h-5 ${r.iconColor}`} />
               </div>
@@ -138,22 +140,22 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
         </div>
       </div>
 
-      {/* Как работает */}
-      <div ref={(el) => { refs.current["Как работает"] = el; }}>
-        <h3 className="text-lg font-bold text-foreground mb-4">Как работает</h3>
+      {/* Как работает — dark gradient */}
+      <div ref={(el) => { refs.current["Как работает"] = el; }} className="rounded-2xl p-6 md:p-8" style={{ background: "linear-gradient(135deg, hsl(var(--dark-section-start)), hsl(var(--dark-section-mid)) 50%, hsl(var(--dark-section-end)))" }}>
+        <h3 className="text-lg font-bold text-white mb-4">Как работает</h3>
         <div className="space-y-4">
           {steps.map((s) => (
             <div key={s.n}>
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <span className="text-primary-foreground font-bold text-xs">{s.n}</span>
+                <div className="w-8 h-8 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center shrink-0">
+                  <span className="text-white font-bold text-xs">{s.n}</span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground flex items-center gap-1.5">
-                    <s.icon className="w-4 h-4 text-primary" />
+                  <p className="text-sm font-semibold text-white flex items-center gap-1.5">
+                    <s.icon className="w-4 h-4 text-white/80" />
                     {s.title}
                   </p>
-                  <p className="text-xs text-muted-foreground">{s.desc}</p>
+                  <p className="text-xs text-white/70">{s.desc}</p>
                 </div>
               </div>
               {s.n === 1 && (
@@ -162,11 +164,11 @@ const CppModuleDetails = ({ onCollapse }: Props) => {
                     href="https://play.google.com/store"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-foreground text-background text-xs font-medium hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-foreground text-xs font-medium hover:opacity-90 transition-opacity"
                   >
                     Google Play
                   </a>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-muted text-muted-foreground text-xs font-medium cursor-default">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-white/70 text-xs font-medium cursor-default">
                     App Store — скоро
                   </span>
                 </div>
