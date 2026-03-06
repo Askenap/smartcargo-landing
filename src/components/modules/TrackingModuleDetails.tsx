@@ -123,7 +123,7 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
             { icon: Search, label: "Клиент", text: "Прозрачный статус доставки", color: "bg-warning/10", iconColor: "text-warning" },
             { icon: Landmark, label: "Государственные органы", text: "Быстрее понимать картину по событиям", color: "bg-success/10", iconColor: "text-success" },
           ].map((r) => (
-            <div key={r.label} className="border border-border rounded-xl p-4 text-center">
+            <div key={r.label} className="rounded-xl p-4 text-center" style={{ boxShadow: "var(--card-shadow)" }}>
               <div className={`w-10 h-10 rounded-lg ${r.color} flex items-center justify-center mx-auto mb-2`}>
                 <r.icon className={`w-5 h-5 ${r.iconColor}`} />
               </div>
