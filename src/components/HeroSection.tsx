@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import logoFull from "@/assets/logo-smart-cargo.svg";
 
 const Globe3D = lazy(() => import("@/components/Globe3D"));
 
