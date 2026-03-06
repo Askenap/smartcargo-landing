@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import logoFull from "@/assets/logo-smart-cargo.svg";
 
 const Globe3D = lazy(() => import("@/components/Globe3D"));
 
@@ -12,9 +13,7 @@ const HeroSection = () => {
       <div className="section-container flex flex-col md:flex-row items-center gap-8 relative z-10 pl-8 md:pl-12 pr-4 md:pr-8">
         {/* Left: text */}
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
-            Smart Cargo
-          </h1>
+          <img src={logoFull} alt="Smart Cargo" className="h-14 md:h-20 mb-2" />
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10">
             Цифровая платформа управления грузоперевозками по всем видам транспорта
           </p>

@@ -1,3 +1,5 @@
+import logoFull from "@/assets/logo-smart-cargo.svg";
+
 const Footer = () => {
   return (
     <footer className="bg-footer text-footer-foreground py-16 section-padding">
@@ -6,10 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">SC</span>
-              </div>
-              <span className="font-bold text-lg text-background">Smart Cargo</span>
+              <img src={logoFull} alt="Smart Cargo" className="h-8 brightness-0 invert" />
             </div>
             <p className="text-sm text-footer-foreground">
               Единая цифровая платформа управления грузоперевозками
