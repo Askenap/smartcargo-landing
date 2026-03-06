@@ -65,7 +65,7 @@ const audiences = [
 
 const AudienceSection = () => {
   return (
-    <section className="py-20 section-padding bg-secondary/30">
+    <section className="py-24 md:py-28 section-padding bg-section-alt">
       <div className="section-container">
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-accent text-accent-foreground mb-4">
@@ -83,10 +83,13 @@ const AudienceSection = () => {
           {audiences.map((a) => (
             <div
               key={a.title}
-              className={`border border-border border-t-4 ${a.color} rounded-2xl p-6 hover:shadow-lg transition-shadow bg-card`}
+              className={`border-t-4 ${a.color} rounded-2xl p-6 bg-card transition-shadow`}
+              style={{ boxShadow: "var(--card-shadow)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
-              <div className={`w-11 h-11 rounded-xl ${a.iconBg} flex items-center justify-center mb-4`}>
-                <a.icon className={`w-5 h-5 ${a.iconColor}`} />
+              <div className={`w-12 h-12 rounded-xl ${a.iconBg} flex items-center justify-center mb-4`}>
+                <a.icon className={`w-6 h-6 ${a.iconColor}`} />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-1">{a.title}</h3>
               <p className="text-sm text-muted-foreground mb-4">{a.subtitle}</p>

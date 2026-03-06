@@ -9,7 +9,7 @@ const ContactsSection = () => {
   const { toast } = useToast();
 
   return (
-    <section id="contacts" className="py-20 section-padding">
+    <section id="contacts" className="py-24 md:py-28 section-padding bg-section-alt">
       <div className="section-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-2">
           Остались вопросы?
@@ -49,6 +49,31 @@ const ContactsSection = () => {
                   support@smartcargo.kz
                 </a>
                 <span className="text-sm text-muted-foreground">+7 (727) 123-45-67</span>
+              </div>
+            </div>
+
+            {/* Google Maps */}
+            <div className="rounded-xl overflow-hidden" style={{ boxShadow: "var(--card-shadow)" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.5!2d71.4306!3d51.1282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA3JzQxLjUiTiA3McKwMjUnNTAuMiJF!5e0!3m2!1sen!2skz!4v1"
+                width="100%"
+                height="200"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Smart Cargo Office Location"
+              />
+              <div className="px-4 py-3 bg-card">
+                <p className="text-sm text-foreground font-medium">Республика Казахстан, Астана</p>
+                <a
+                  href="https://maps.google.com/?q=51.1282,71.4306"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline"
+                >
+                  Открыть в Картах ↗
+                </a>
               </div>
             </div>
           </div>

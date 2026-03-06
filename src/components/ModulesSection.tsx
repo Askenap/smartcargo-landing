@@ -10,7 +10,7 @@ const ModulesSection = () => {
   const [trackingOpen, setTrackingOpen] = useState(true);
 
   return (
-    <section id="modules" className="py-20 section-padding">
+    <section id="modules" className="py-24 md:py-28 section-padding">
       <div className="section-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
           Модули платформы
@@ -18,12 +18,17 @@ const ModulesSection = () => {
 
         <div className="grid md:grid-cols-2 gap-6 items-start">
           {/* ЦПП Card */}
-          <div className="border border-border rounded-2xl p-8 hover:shadow-lg transition-shadow">
+          <div
+            className="rounded-2xl p-8 bg-card transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center mb-6">
               <FileCheck className="w-6 h-6 text-success" />
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Цифровой паспорт перевозки</h3>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: 'hsl(48 96% 89%)', color: 'hsl(32 80% 30%)' }}>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-3 bg-success/10 text-success border border-success/30">
               🚀 Пилотный запуск — 15 марта 2026
             </span>
             <p className="text-base font-semibold text-muted-foreground mb-6">
@@ -37,7 +42,7 @@ const ModulesSection = () => {
                 </div>
               ))}
             </div>
-            <div className="mb-6 p-3 rounded-xl bg-secondary/50 border border-border">
+            <div className="mb-6 p-3 rounded-xl bg-secondary/50" style={{ boxShadow: "var(--card-shadow)" }}>
               <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
                 <Smartphone className="w-3.5 h-3.5" />
                 Мобильное приложение для водителя
@@ -69,7 +74,12 @@ const ModulesSection = () => {
           </div>
 
           {/* Tracking Card */}
-          <div className="border border-border rounded-2xl p-8 hover:shadow-lg transition-shadow">
+          <div
+            className="rounded-2xl p-8 bg-card transition-shadow"
+            style={{ boxShadow: "var(--card-shadow)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+          >
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
               <MapPin className="w-6 h-6 text-primary" />
             </div>
