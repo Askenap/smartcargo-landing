@@ -1,3 +1,5 @@
+import logoFull from "@/assets/logo-smart-cargo.svg";
+
 const Footer = () => {
   return (
     <footer className="bg-footer text-footer-foreground py-16 section-padding">
