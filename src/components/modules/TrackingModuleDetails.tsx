@@ -100,7 +100,7 @@ const TrackingModuleDetails = ({ onCollapse }: Props) => {
         <h3 className="text-lg font-bold text-foreground mb-4">Источники данных</h3>
         <div className="space-y-3">
           {sources.map((s) => (
-            <div key={s.name} className="border border-border rounded-xl p-4 flex gap-3">
+            <div key={s.name} className="rounded-xl p-4 flex gap-3" style={{ boxShadow: "var(--card-shadow)" }}>
               <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
                 <s.icon className="w-5 h-5 text-accent-foreground" />
               </div>
