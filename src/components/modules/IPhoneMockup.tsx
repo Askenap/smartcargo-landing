@@ -120,7 +120,7 @@ const IPhoneMockup = () => {
         <img
           src={handPhoneMockup}
           alt="Рука держит смартфон с интерфейсом Smart Cargo"
-          className="max-h-[300px] sm:max-h-[400px] w-auto object-contain select-none"
+          className="max-h-[250px] sm:max-h-[300px] w-auto object-contain select-none"
           draggable={false}
         />
       </div>
