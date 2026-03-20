@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 import CppModuleDetails from "@/components/modules/CppModuleDetails";
 import TrackingModuleDetails from "@/components/modules/TrackingModuleDetails";
+import IPhoneMockup from "@/components/modules/IPhoneMockup";
 
 const ModulesSection = () => {
   const [cppOpen, setCppOpen] = useState(true);
