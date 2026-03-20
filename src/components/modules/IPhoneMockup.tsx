@@ -1,5 +1,6 @@
 import { Check, Shield, FileText, CheckCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import handPhoneMockup from "@/assets/hand-phone-mockup.png";
 
 const statuses = [
   "Предварительное информирование",
@@ -28,7 +29,7 @@ const IPhoneMockup = () => {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative flex items-center justify-center py-8 md:py-12 overflow-visible">
+    <div ref={wrapperRef} className="relative flex items-center justify-center py-6 md:py-10 overflow-visible">
       {/* Background blobs */}
       <div className="absolute pointer-events-none" style={{ width: 450, height: 450, background: "radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)", top: "50%", left: "30%", transform: "translate(-50%, -50%)" }} />
       <div className="absolute pointer-events-none" style={{ width: 220, height: 220, background: "radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%)", top: "60%", right: "5%", transform: "translateY(-50%)" }} />
@@ -41,142 +42,83 @@ const IPhoneMockup = () => {
       {/* Main composition */}
       <div className="relative flex items-center gap-6 md:gap-10 z-[2]">
 
-        {/* iPhone 17 Pro with 3D depth */}
+        {/* Hand holding phone */}
         <div
-          style={{ perspective: 1200 }}
-          className={`transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+          className={`relative shrink-0 transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+          style={{ width: 320, height: 520 }}
         >
+          {/* The hand+phone image */}
+          <img
+            src={handPhoneMockup}
+            alt="Hand holding smartphone"
+            className="absolute inset-0 w-full h-full object-contain z-[2] pointer-events-none select-none"
+            draggable={false}
+          />
+
+          {/* Screen content — positioned to align with white screen area */}
           <div
-            className="relative shrink-0"
+            className="absolute z-[1] overflow-hidden"
             style={{
-              width: 300,
-              transformStyle: "preserve-3d",
-              transform: "rotateY(-12deg) rotateX(4deg) rotateZ(-2deg)",
-              transition: "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)",
+              top: "5.5%",
+              left: "17%",
+              width: "52%",
+              height: "82%",
+              borderRadius: "20px",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = "rotateY(-2deg) rotateX(1deg) rotateZ(0deg)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = "rotateY(-12deg) rotateX(4deg) rotateZ(-2deg)"; }}
           >
-            {/* 3D side edges (visible due to rotation) */}
-            {/* Right edge */}
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                top: 8, right: -5, width: 6, height: "calc(100% - 16px)",
-                borderRadius: "0 4px 4px 0",
-                background: "linear-gradient(180deg, #3a3a3a 0%, #222 40%, #1a1a1a 100%)",
-                transform: "rotateY(90deg) translateZ(0px)",
-                transformOrigin: "left center",
-                boxShadow: "2px 0 8px rgba(0,0,0,0.3)",
-              }}
-            />
-            {/* Bottom edge */}
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                bottom: -4, left: 12, right: 12, height: 5,
-                borderRadius: "0 0 4px 4px",
-                background: "linear-gradient(90deg, #2a2a2a, #1a1a1a, #2a2a2a)",
-                transform: "rotateX(-90deg)",
-                transformOrigin: "top center",
-              }}
-            />
+            <div className="w-full h-full bg-[#F8F9FB] flex flex-col overflow-hidden" style={{ borderRadius: "20px" }}>
+              {/* Status bar */}
+              <div className="flex justify-between items-center px-4 pt-2 pb-0.5 text-[7px] font-semibold text-white" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
+                <span>9:41</span>
+                <span className="flex items-center gap-1">
+                  <svg width="10" height="7" viewBox="0 0 12 8" fill="white"><rect x="0" y="3" width="2" height="5" rx="0.5" /><rect x="3" y="2" width="2" height="6" rx="0.5" /><rect x="6" y="1" width="2" height="7" rx="0.5" /><rect x="9" y="0" width="2" height="8" rx="0.5" /></svg>
+                  <svg width="14" height="8" viewBox="0 0 16 9" fill="none"><rect x="0.5" y="0.5" width="13" height="8" rx="1.5" stroke="white" strokeWidth="1" /><rect x="14" y="2.5" width="1.5" height="4" rx="0.5" fill="white" /><rect x="1.5" y="1.5" width="11" height="6" rx="1" fill="white" /></svg>
+                </span>
+              </div>
 
-            {/* Titanium buttons — left side */}
-            <div className="absolute pointer-events-none" style={{ top: 100, left: -3, width: 3, height: 28, borderRadius: "3px 0 0 3px", background: "linear-gradient(180deg, #555, #3a3a3a, #555)" }} />
-            <div className="absolute pointer-events-none" style={{ top: 145, left: -3, width: 3, height: 50, borderRadius: "3px 0 0 3px", background: "linear-gradient(180deg, #555, #3a3a3a, #555)" }} />
-            <div className="absolute pointer-events-none" style={{ top: 205, left: -3, width: 3, height: 50, borderRadius: "3px 0 0 3px", background: "linear-gradient(180deg, #555, #3a3a3a, #555)" }} />
-            {/* Right side — power button */}
-            <div className="absolute pointer-events-none" style={{ top: 160, right: -3, width: 3, height: 60, borderRadius: "0 3px 3px 0", background: "linear-gradient(180deg, #555, #3a3a3a, #555)" }} />
+              {/* Header */}
+              <div className="px-3 pt-1 pb-3 text-center" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
+                <p className="text-[11px] font-bold text-white leading-tight">Проверка перевозки</p>
+                <p className="text-[8px] text-white/70 mt-0.5">Таможенный контроль</p>
+              </div>
 
-            {/* Phone frame — Natural Titanium finish */}
-            <div
-              className="rounded-[44px] p-[5px] relative"
-              style={{
-                background: "linear-gradient(145deg, #4a4a4a 0%, #2a2a2a 20%, #1a1a1a 50%, #222 80%, #3a3a3a 100%)",
-                boxShadow: [
-                  "0 2px 4px rgba(0,0,0,0.03)",
-                  "0 4px 8px rgba(0,0,0,0.05)",
-                  "0 8px 16px rgba(0,0,0,0.07)",
-                  "0 16px 32px rgba(0,0,0,0.09)",
-                  "0 32px 64px rgba(0,0,0,0.14)",
-                  "0 50px 100px rgba(37,99,235,0.10)",
-                  "inset 0 1px 0 rgba(255,255,255,0.08)",
-                  "inset 0 -1px 0 rgba(0,0,0,0.2)",
-                ].join(", "),
-              }}
-            >
-              {/* Edge highlight streaks */}
-              <div className="absolute top-8 -left-[1px] w-[2px] h-20 rounded-full pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.25), transparent)" }} />
-              <div className="absolute top-24 -right-[1px] w-[1px] h-14 rounded-full pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(255,255,255,0.12), transparent)" }} />
-              {/* Top chamfer highlight */}
-              <div className="absolute top-[1px] left-[50px] right-[50px] h-[1px] pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)" }} />
+              {/* Vehicle card */}
+              <div className="mx-2.5 -mt-1.5 mb-2 rounded-lg bg-white p-2 relative z-[1]" style={{ boxShadow: "0 1px 6px rgba(0,0,0,0.08)" }}>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-5 h-5 rounded bg-[#2563EB]/10 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 fill-[#2563EB]">
+                      <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                    </svg>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#111827] tracking-wide">563APK13</span>
+                </div>
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-[#10B981]/10 text-[7px] font-semibold text-[#10B981]">
+                  <Check className="w-2.5 h-2.5" /> Проверка пройдена
+                </span>
+              </div>
 
-              {/* Dynamic Island */}
-              <div className="absolute top-[10px] left-1/2 -translate-x-1/2 z-10">
-                <div className="w-[90px] h-[26px] bg-black rounded-full flex items-center justify-center gap-2">
-                  <div className="w-[8px] h-[8px] rounded-full bg-[#1a1a2e] ring-1 ring-[#2a2a3a]" />
+              {/* Timeline */}
+              <div className="px-2.5 pb-2 flex-1 overflow-hidden">
+                <p className="text-[7px] font-bold text-[#6B7280] mb-1 uppercase tracking-widest">Статусы</p>
+                <div>
+                  {statuses.map((s, i) => (
+                    <div key={s} className="flex items-start gap-1.5">
+                      <div className="flex flex-col items-center">
+                        <div className="w-[14px] h-[14px] rounded-full bg-[#10B981] flex items-center justify-center shrink-0">
+                          <Check className="w-2 h-2 text-white" strokeWidth={3} />
+                        </div>
+                        {i < statuses.length - 1 && <div className="w-[1.5px] h-[10px] bg-[#10B981]/40" />}
+                      </div>
+                      <span className="text-[8px] text-[#374151] leading-tight pt-[1px] font-medium">{s}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Screen */}
-              <div className="relative rounded-[39px] overflow-hidden bg-[#F8F9FB]" style={{ aspectRatio: "9/19.5" }}>
-                {/* Glare overlay */}
-                <div className="absolute inset-0 z-10 pointer-events-none rounded-[39px]" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.08) 20%, transparent 40%, transparent 100%)" }} />
-
-                {/* Status bar */}
-                <div className="flex justify-between items-center px-6 pt-3 pb-1 text-[8px] font-semibold text-white relative z-[5]" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
-                  <span>9:41</span>
-                  <span className="flex items-center gap-1">
-                    <svg width="12" height="8" viewBox="0 0 12 8" fill="white"><rect x="0" y="3" width="2" height="5" rx="0.5" /><rect x="3" y="2" width="2" height="6" rx="0.5" /><rect x="6" y="1" width="2" height="7" rx="0.5" /><rect x="9" y="0" width="2" height="8" rx="0.5" /></svg>
-                    <svg width="16" height="9" viewBox="0 0 16 9" fill="none"><rect x="0.5" y="0.5" width="13" height="8" rx="1.5" stroke="white" strokeWidth="1" /><rect x="14" y="2.5" width="1.5" height="4" rx="0.5" fill="white" /><rect x="1.5" y="1.5" width="11" height="6" rx="1" fill="white" /></svg>
-                  </span>
-                </div>
-
-                {/* Header */}
-                <div className="px-5 pt-2 pb-4 text-center" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
-                  <p className="text-[13px] font-bold text-white leading-tight">Проверка перевозки</p>
-                  <p className="text-[10px] text-white/70 mt-0.5">Таможенный контроль</p>
-                </div>
-
-                {/* Vehicle card */}
-                <div className="mx-4 -mt-2 mb-3 rounded-xl bg-white p-3 relative z-[1]" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}>
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="w-7 h-7 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
-                      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-[#2563EB]">
-                        <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-                      </svg>
-                    </div>
-                    <span className="text-[12px] font-bold text-[#111827] tracking-wide">563APK13</span>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#10B981]/10 text-[9px] font-semibold text-[#10B981]">
-                    <Check className="w-3 h-3" /> Проверка пройдена
-                  </span>
-                </div>
-
-                {/* Timeline */}
-                <div className="px-4 pb-3">
-                  <p className="text-[9px] font-bold text-[#6B7280] mb-2 uppercase tracking-widest">Статусы проверок</p>
-                  <div>
-                    {statuses.map((s, i) => (
-                      <div key={s} className="flex items-start gap-2.5">
-                        <div className="flex flex-col items-center">
-                          <div className="w-[18px] h-[18px] rounded-full bg-[#10B981] flex items-center justify-center shrink-0">
-                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
-                          </div>
-                          {i < statuses.length - 1 && <div className="w-[2px] h-[14px] bg-[#10B981]/50" />}
-                        </div>
-                        <span className="text-[10px] text-[#374151] leading-tight pt-[2px] font-medium">{s}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Bottom button */}
-                <div className="px-4 pb-4 mt-1">
-                  <div className="w-full py-2.5 rounded-xl text-center text-[10px] font-semibold text-white" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
-                    Вернуться в главное
-                  </div>
+              {/* Bottom button */}
+              <div className="px-2.5 pb-2 mt-auto">
+                <div className="w-full py-1.5 rounded-lg text-center text-[8px] font-semibold text-white" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
+                  Вернуться в главное
                 </div>
               </div>
             </div>
