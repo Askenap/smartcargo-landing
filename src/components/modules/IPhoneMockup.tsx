@@ -45,28 +45,22 @@ const IPhoneMockup = () => {
         {/* Hand holding phone */}
         <div
           className={`relative shrink-0 transition-all duration-700 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-          style={{ width: 320, height: 520 }}
+          style={{ width: 340, height: 520 }}
         >
-          {/* The hand+phone image */}
-          <img
-            src={handPhoneMockup}
-            alt="Hand holding smartphone"
-            className="absolute inset-0 w-full h-full object-contain z-[2] pointer-events-none select-none"
-            draggable={false}
-          />
-
-          {/* Screen content — positioned to align with white screen area */}
+          {/* Screen content — positioned behind the hand image, aligned to the phone screen */}
           <div
             className="absolute z-[1] overflow-hidden"
             style={{
-              top: "5.5%",
-              left: "17%",
-              width: "52%",
-              height: "82%",
-              borderRadius: "20px",
+              top: "4%",
+              left: "15.5%",
+              width: "55%",
+              height: "78%",
+              borderRadius: "24px",
+              transform: "rotate(-8deg)",
+              transformOrigin: "center center",
             }}
           >
-            <div className="w-full h-full bg-[#F8F9FB] flex flex-col overflow-hidden" style={{ borderRadius: "20px" }}>
+            <div className="w-full h-full bg-[#F8F9FB] flex flex-col overflow-hidden">
               {/* Status bar */}
               <div className="flex justify-between items-center px-4 pt-2 pb-0.5 text-[7px] font-semibold text-white" style={{ background: "linear-gradient(135deg, #2563EB, #1e40af)" }}>
                 <span>9:41</span>
@@ -123,6 +117,14 @@ const IPhoneMockup = () => {
               </div>
             </div>
           </div>
+
+          {/* The hand+phone image on top */}
+          <img
+            src={handPhoneMockup}
+            alt="Рука держит смартфон с интерфейсом ЦПП"
+            className="absolute inset-0 w-full h-full object-contain z-[2] pointer-events-none select-none"
+            draggable={false}
+          />
         </div>
 
         {/* Animated dashed connector */}
