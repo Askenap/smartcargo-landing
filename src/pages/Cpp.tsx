@@ -141,6 +141,20 @@ const CppPage = () => {
 
             {/* Right: hand + QR */}
             <div className="flex items-center gap-6 lg:gap-8 shrink-0">
+              {/* Hand */}
+              <img
+                src={handPhoneMockup}
+                alt="Рука держит смартфон с интерфейсом Smart Cargo"
+                className="max-h-[350px] md:max-h-[480px] w-auto object-contain select-none"
+                draggable={false}
+              />
+
+              {/* Dashed arrow */}
+              <svg width="50" height="30" viewBox="0 0 50 30" fill="none" className="hidden md:block shrink-0">
+                <path d="M0 15 Q25 0 50 15" stroke="#2563EB" strokeWidth="2" strokeDasharray="6 6" strokeOpacity="0.25" fill="none" style={{ animation: "mockup-dash 1.5s linear infinite" }} />
+                <polygon points="46,12 50,15 46,18" fill="#2563EB" fillOpacity="0.25" />
+              </svg>
+
               {/* QR */}
               <div className="flex flex-col items-center gap-2">
                 <div
@@ -151,20 +165,6 @@ const CppPage = () => {
                 </div>
                 <p className="text-xs font-semibold text-muted-foreground">Один QR = все документы</p>
               </div>
-
-              {/* Dashed arrow */}
-              <svg width="50" height="30" viewBox="0 0 50 30" fill="none" className="hidden md:block shrink-0">
-                <path d="M0 15 Q25 0 50 15" stroke="#2563EB" strokeWidth="2" strokeDasharray="6 6" strokeOpacity="0.25" fill="none" style={{ animation: "mockup-dash 1.5s linear infinite" }} />
-                <polygon points="46,12 50,15 46,18" fill="#2563EB" fillOpacity="0.25" />
-              </svg>
-
-              {/* Hand */}
-              <img
-                src={handPhoneMockup}
-                alt="Рука держит смартфон с интерфейсом Smart Cargo"
-                className="max-h-[350px] md:max-h-[480px] w-auto object-contain select-none"
-                draggable={false}
-              />
             </div>
           </div>
         </div>
