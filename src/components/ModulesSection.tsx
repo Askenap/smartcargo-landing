@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 import CppModuleDetails from "@/components/modules/CppModuleDetails";
 import TrackingModuleDetails from "@/components/modules/TrackingModuleDetails";
+import IPhoneMockup from "@/components/modules/IPhoneMockup";
 
 const ModulesSection = () => {
   const [cppOpen, setCppOpen] = useState(true);
@@ -42,6 +43,9 @@ const ModulesSection = () => {
                 </div>
               ))}
             </div>
+            {/* iPhone Mockup */}
+            <IPhoneMockup />
+
             <div className="mb-6 p-3 rounded-xl bg-secondary/50" style={{ boxShadow: "var(--card-shadow)" }}>
               <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
                 <Smartphone className="w-3.5 h-3.5" />
